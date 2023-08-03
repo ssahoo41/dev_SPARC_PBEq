@@ -1,0 +1,2813 @@
+---------------------------------------
+Begin Slurm Prolog: Jun-01-2023 11:20:43
+Job ID:    2266723
+User ID:   ssahoo41
+Account:   gts-amedford6-joe
+Job name:  molecule_functional
+Partition: cpu-small
+QOS:       inferno
+---------------------------------------
+---------------------------------------
+Begin Slurm Prolog: Jun-01-2023 11:20:47
+Job ID:    2266723
+User ID:   ssahoo41
+Account:   gts-amedford6-joe
+Job name:  molecule_functional
+Partition: cpu-small
+QOS:       inferno
+---------------------------------------
+
+Creating SPARC_INPUT_MPI datatype took 0.050 ms
+Initializing ...
+Checking input arguments parsed by command line.
+
+Checking inputs parsed by commandline took 0.013 ms
+
+Set default values took 0.002 ms
+Reading input file sprc-calc.inpt
+
+Reading input file took 51.493 ms
+Reading ion file sprc-calc.ion
+Number of atom types : 2.
+Total number of atoms: 10.
+[32m
+Time for finding element is 0.005 ms
+[32mElement type for atom_type H is H
+[0m[32mDefault atomic mass for H is 1.007975
+[0m[32m
+Time for finding element is 0.000 ms
+[32mElement type for atom_type C is C
+[0m[32mDefault atomic mass for C is 12.010600
+[0mpseudo_dir # 1 = H.psp8
+pseudo_dir # 2 = C.psp8
+
+Reading ion file took 10.528 ms
+Reading pseudopotential (PSP) file.
+Reading pseudopotential: H.psp8
+Input element type: H
+pspcod = 8, pspxc = 11
+l = 0, r_core read 1.03328, change to rmax where |UdV| < 1E-8, 1.05000.
+l = 1, r_core read 1.00283, change to rmax where |UdV| < 1E-8, 1.02000.
+Reading pseudopotential: C.psp8
+Input element type: C
+pspcod = 8, pspxc = 11
+
+fchrg = 4.00000000 > 0.0 (icmod != 0)
+This pseudopotential contains non-linear core correction. 
+
+fchrg = 4.000000, READING MODEL CORE CHARGE!
+
+l = 0, r_core read 1.20716, change to rmax where |UdV| < 1E-8, 1.22000.
+l = 1, r_core read 1.25127, change to rmax where |UdV| < 1E-8, 1.27000.
+
+Reading pseudopotential file took 17.714 ms
+
+Freeing SPARC_INPUT_MPI datatype took 0.007 ms
+Broadcasting Atom info. using MPI_Pack & MPI_Unpack in SPARC took 0.894 ms
+M_val = 1000000.000000N_val = 15.000000[33m
+WARNING: Pseudopotential file for atom type H has pspxc = 11,
+not equal to input ixc = 0 (GGA_CONV_PBE_MULTIPOLE). Be careful with the result.
+[0m[33m
+WARNING: Pseudopotential file for atom type C has pspxc = 11,
+not equal to input ixc = 0 (GGA_CONV_PBE_MULTIPOLE). Be careful with the result.
+[0mspin_typ: 0, SOC_flag: 0, Nspin: 1, Nspinor: 1, Nspden: 1, occfac 2.00
+
+Checking existence of (0) out file(s) took 0.082 ms
+
+
+CELL_TYP: 0
+
+
+Range:
+   20.000000	   20.000000	   20.000000
+
+COORD AFTER MAPPING:
+   10.848459	   12.209243	   12.759278	
+    9.151541	    7.790757	   12.759278	
+   10.165251	   14.898833	    9.101275	
+    9.059026	   12.146013	    7.240722	
+    9.834749	    5.101167	    9.101275	
+   10.940974	    7.853987	    7.240722	
+   10.204652	   11.377508	   10.997173	
+    9.795348	    8.622492	   10.997173	
+    9.795348	   12.889514	    9.001748	
+   10.204652	    7.110486	    9.001748	
+
+Max eigenvalue of -0.5*Lap is 265.2352092352092, time taken: 0.004 ms
+Chebyshev polynomial degree (provided by user): npl = 45
+[34m[k1_red,k2_red,k3_red] =   0.0000   0.0000   0.0000
+[0mAfter symmetry reduction, Nkpts_sym = 1
+k1[ 0]:   0.0000, k2[ 0]:   0.0000, k3[ 0]:   0.0000, kptwt[ 0]: 1.000 
+
+rank = 0, Copying data from SPARC_Input into SPARC & set up subcomm took 0.160 ms
+Set up communicators.
+
+--set up spincomm took 2.257 ms
+
+--set up kptcomm took 0.388 ms
+
+ kpt_topo #0, kptcomm topology dims = {2, 2, 3}, nodes/proc = {50.00,50.00,33.33}
+
+--set up bandcomm took 0.009 ms
+rank = 0, dmcomm dims = {1, 1, 2}
+gridsizes = [100, 100, 100], Nstates = 18, dmcomm dims = [1, 1, 2]
+
+--set up dmcomm took 0.005 ms
+
+--set up blacscomm took 0.010 ms
+rank = 0, size_blacscomm = 6, ScaLAPACK topology Dims = (6, 1)
+nproc = 12, size_blacscomm = 6 = dims[0] * dims[1] = (6, 1)
+Nd_blacscomm 500000, Nstates 18 
+rank =  0, my blacs rank = 0, BLCYC size (500000, 3), actual size (500000, 3)
+rank = 0, mb = nb = 18, mbQ = nbQ = 64
+rank = 0, nr_Hp = 18, nc_Hp = 18
+========================================================================
+Poisson domain decomposition:np total = 12, {Nx, Ny, Nz} = {100, 100, 100}
+nproc used = 12 = {2, 2, 3}, nodes/proc = {50.00, 50.00, 33.33}
+
+
+--set up dmcomm_phi took 0.030 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.067 ms
+
+-----------------------------------------------
+Parallelization summary
+Total number of processors: 12
+-----------------------------------------------
+== Psi domain ==
+Total number of processors used for Psi domain: 12
+npspin  : 1
+# of spin per spincomm           : 1
+npkpt   : 1
+# of k-points per kptcomm        : 1
+npband  : 6
+# of bands per bandcomm          : 3
+npdomain: 2
+Embeded Cartesian topology dims: (1,1,2)
+# of FD-grid points per processor: 500000 = (100,100,50)
+-----------------------------------------------
+== Phi domain ==
+Total number of processors used for Phi domain: 12
+Embeded Cartesian topology dims: (2,2,3)
+# of FD-grid points per processor: 85000 = (50,50,34)
+-----------------------------------------------
+
+rank = 0, Copying data from SPARC_Input into SPARC & set up subcomm took 7.082 ms
+
+Calculate_SplineDerivRadFun took 0.114 ms
+Rbmax_x = 12.000000, Rbmax_y = 12.000000, Rbmax_z = 12.000000
+rlen_ex = 373248, nxp = 72, nyp = 72, nzp = 72
+time spent on qsort: 1.836 ms.
+time spent on vectorized spline interp: 3.344 ms.
+Z = 1,rb_x = 6.525000,rb_y = 6.525000,rb_z = 6.525000,error = 2.105E-13,Bint = -1.0000000000002
+Z = 1,rb_x = 3.787500,rb_y = 3.787500,rb_z = 3.787500,error = 2.241E-08,Bint = -0.9999999775947
+Z = 1,rb_x = 2.418750,rb_y = 2.418750,rb_z = 2.418750,error = 1.204E-05,Bint = -1.0000120416347
+Z = 1,rb_x = 3.103125,rb_y = 3.103125,rb_z = 3.103125,error = 4.230E-06,Bint = -1.0000042302140
+Z = 1,rb_x = 3.445312,rb_y = 3.445312,rb_z = 3.445312,error = 1.064E-07,Bint = -1.0000001064153
+Z = 1,rb_x = 3.616406,rb_y = 3.616406,rb_z = 3.616406,error = 2.241E-08,Bint = -0.9999999775947
+dx = 0.200000, dy = 0.200000, dz = 0.200000, Ncube_x = 19, Ncube_y = 19, Ncube_z = 19
+ityp = 0, converged in 6 iters, err_cur = 2.24E-08, TOL = 1.00E-07, rb = {3.616406, 3.616406, 3.616406}, after proj to grid rb = {3.800000, 3.800000, 3.800000}
+time for finding rb using bisection: 2.733 ms.
+time spent on vectorized spline interp: 1.683 ms.
+Z = 4,rb_x = 6.635000,rb_y = 6.635000,rb_z = 6.635000,error = 3.185E-08,Bint = -3.9999999681490
+Z = 4,rb_x = 3.952500,rb_y = 3.952500,rb_z = 3.952500,error = 9.295E-06,Bint = -4.0000092954588
+Z = 4,rb_x = 5.293750,rb_y = 5.293750,rb_z = 5.293750,error = 1.410E-05,Bint = -4.0000141026792
+Z = 4,rb_x = 5.964375,rb_y = 5.964375,rb_z = 5.964375,error = 1.338E-05,Bint = -4.0000133762367
+Z = 4,rb_x = 6.299687,rb_y = 6.299687,rb_z = 6.299687,error = 7.226E-07,Bint = -3.9999992774061
+Z = 4,rb_x = 6.467344,rb_y = 6.467344,rb_z = 6.467344,error = 1.525E-07,Bint = -4.0000001524699
+dx = 0.200000, dy = 0.200000, dz = 0.200000, Ncube_x = 34, Ncube_y = 34, Ncube_z = 34
+ityp = 1, converged in 6 iters, err_cur = 3.19E-08, TOL = 1.00E-07, rb = {6.635000, 6.635000, 6.635000}, after proj to grid rb = {6.800000, 6.800000, 6.800000}
+time for finding rb using bisection: 2.551 ms.
+
+Calculating rb for all atom types took 12.156 ms
+----------------------
+Estimated memory usage
+Total: 1.11 GB
+orbitals             : 823.97 MB
+global sized vectors : 213.62 MB
+subspace matrices : 15.19 kB
+others : 103.76 MB
+----------------------------------------------
+Estimated memory usage per processor: 95.11 MB
+Start ground-state calculation.
+
+Computing nearest neighbor distance (2.046 Bohr) takes 0.000 ms
+Calculating electron density ... 
+Finding atoms that influence the local process domain ... 
+
+Finding influencing atoms took 0.014 ms
+Calculating pseudocharge density ... 
+the global sum of int_b = -22.0000000366763, sum_int_rho = 21.3911575019784
+PosCharge = 22.000000036676, NegCharge = -21.391157501978, scal_fac = 1.028462346399
+After scaling, int_rho = 22.0000000366761, PosCharge + NegCharge - NetCharge = 1.172e-13
+--Calculate Vref took 0.515 ms
+--Calculate rho_guess took 2.852 ms
+
+ integral of b = -22.0000000366763,
+ int{b} + Nelectron + NetCharge = -3.668e-08,
+ Esc = -50.1251362599925,
+ MPI_Reduce took 2.059 ms
+
+Calculating b & b_ref took 12.298 ms
+Finding atoms that has nonlocal influence on the local process domain ... 
+[32mrank = 0, time for nonlocal influencing atoms: 0.046 ms
+[0m
+Finding nonlocal influencing atoms in psi-domain took 0.120 ms
+Calculate nonlocal projectors ... 
+[34mrank = 0, Time for spherical harmonics: 0.033 ms
+[0m
+Calculating nonlocal projectors in psi-domain took 0.288 ms
+Finding atoms that has nonlocal influence on the local process domain ... 
+[32mrank = 0, time for nonlocal influencing atoms: 0.003 ms
+[0m
+Finding nonlocal influencing atoms in kptcomm_topo took 0.006 ms
+Calculate nonlocal projectors ... 
+[34mrank = 0, Time for spherical harmonics: 0.000 ms
+[0m
+Calculating nonlocal projectors in kptcomm_topo took 0.001 ms
+Initializing Kohn-Sham orbitals ... 
+Finished setting random orbitals. Time taken: 33.606 ms
+Initializing electron density ... 
+Start SCF calculation ... 
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667613, int_b + int_rho = -1.601e-13, checking this took 0.086 ms
+2-norm of RHS = 732.6376400776530, which took 0.500 ms
+
+iter_count = 420, r_2norm = 6.437e-04, tol*||rhs|| = 7.326e-04
+
+Anderson update took 254.601 ms, out of which F'*F took 117.689 ms; b-Ax took 798.986 ms, out of which Lap took 710.349 ms
+Solving Poisson took 1765.844 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.028 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.819 ms
+Total time for convolution: 	 convolve: 5.105446 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 25.329 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.797 ms
+Total time for convolution: 	 convolve: 5.108634 
+Total time for convolution: 	 convolve: 5.102540 
+Total time for convolution: 	 convolve: 5.111814 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.005 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.036 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.736 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.552 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.217 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.397 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.314 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.024 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.345 ms
+rank = 0, XC calculation took 24512.863 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.006 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.240 ms
+---Transfer Veff_loc: D2D took 2.684 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 5.237 ms
+rank = 0, Veff calculation and Bcast (non-blocking) took 9.037 ms
+-------------
+SCF iter 1  
+-------------
+
+Time for setting up initial guess for Lanczos: 2.137 ms
+
+Start Lanczos algorithm ...
+Wait for veff to be bcasted took 0.000 ms
+rank =  0, One H*x took 1.865 ms
+    Lanczos iter 53, eigmin  = -0.845488990, eigmax = 264.928214215, err_eigmin = 6.836e-04, err_eigmax = 9.975e-03
+rank =   0, Lanczos took 134.490 ms, eigmin = -0.845488989701, eigmax = 267.577496356968
+
+ Chebfilt 1, in Chebyshev filtering, lambda_cutoff = 133.316004, lowerbound = -0.945489, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1738.430 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.003 ms
+rank =  0, Distribute orbital to block cyclic format took 26.510 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.740 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.011 ms
+rank =  0, Distribute data + matrix mult took 30.282 ms
+rank =  0, finding HY took 29.781 ms
+rank =  0, distributing HY into block cyclic form took 18.953 ms
+rank =  0, finding Y'*HY took 5.759 ms
+Rank 0, Project_Hamiltonian used 84.807 ms
+Total time for projection: 84.819 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.390 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.076 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.470 ms
+    first calculated eigval = 2.761600345484125
+    last  calculated eigval = 3.221937666845884
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =   2.77876908588078
+lambda[   3] =   2.82046417517503
+lambda[   4] =   2.84209693976975
+lambda[   5] =   2.86465301066593
+lambda[   6] =   2.88979024340488
+lambda[   7] =   2.94169944911589
+lambda[   8] =   2.94736032901466
+lambda[   9] =   2.95676149905676
+lambda[  10] =   2.97333261065245
+lambda[  11] =   3.03929418834891
+lambda[  12] =   3.06584367815015
+lambda[  13] =   3.08137933872073
+lambda[  14] =   3.10574462539632
+lambda[  15] =   3.11517797294458
+lambda[  16] =   3.14182448992778
+lambda[  17] =   3.18462106313230
+lambda[  18] =   3.22193766684588
+==subpsace eigenproblem: bcast eigvals took 0.010 ms
+Total time for solving subspace eigenvalue problem: 0.486 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.751 ms
+rank =  0, Distributing orbital back into band + domain format took 18.027 ms
+rank = 0, Subspace_Rotation used 25.791 ms
+
+Total time for subspace rotation: 25.795 ms
+rank = 0, Efermi =   3.052568933847 calculate fermi energy took 0.058 ms
+
+ Chebfilt 2, in Chebyshev filtering, lambda_cutoff = 3.321938, lowerbound = -0.945489, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1741.890 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.001 ms
+rank =  0, Distribute orbital to block cyclic format took 18.113 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.996 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.009 ms
+rank =  0, Distribute data + matrix mult took 22.139 ms
+rank =  0, finding HY took 28.474 ms
+rank =  0, distributing HY into block cyclic form took 18.053 ms
+rank =  0, finding Y'*HY took 5.385 ms
+Rank 0, Project_Hamiltonian used 74.081 ms
+Total time for projection: 74.085 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.116 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.069 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.188 ms
+    first calculated eigval = -0.648974254329001
+    last  calculated eigval = 0.432323676159146
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.56213587936277
+lambda[   3] =  -0.37399226253076
+lambda[   4] =  -0.20927645643714
+lambda[   5] =  -0.14463082681775
+lambda[   6] =  -0.09473227932528
+lambda[   7] =  -0.07762864407133
+lambda[   8] =  -0.00481205949142
+lambda[   9] =   0.14608878692715
+lambda[  10] =   0.19533324206207
+lambda[  11] =   0.24750273474146
+lambda[  12] =   0.30430257041749
+lambda[  13] =   0.34234079551269
+lambda[  14] =   0.35335706685268
+lambda[  15] =   0.36335103597780
+lambda[  16] =   0.38560822151958
+lambda[  17] =   0.41315272531611
+lambda[  18] =   0.43232367615915
+==subpsace eigenproblem: bcast eigvals took 0.006 ms
+Total time for solving subspace eigenvalue problem: 0.196 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.939 ms
+rank =  0, Distributing orbital back into band + domain format took 18.239 ms
+rank = 0, Subspace_Rotation used 26.189 ms
+
+Total time for subspace rotation: 26.195 ms
+rank = 0, Efermi =   0.276258833093 calculate fermi energy took 0.025 ms
+
+ Chebfilt 3, in Chebyshev filtering, lambda_cutoff = 0.532324, lowerbound = -0.945489, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1749.735 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.001 ms
+rank =  0, Distribute orbital to block cyclic format took 17.785 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.877 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.007 ms
+rank =  0, Distribute data + matrix mult took 21.686 ms
+rank =  0, finding HY took 28.452 ms
+rank =  0, distributing HY into block cyclic form took 18.020 ms
+rank =  0, finding Y'*HY took 5.241 ms
+Rank 0, Project_Hamiltonian used 73.428 ms
+Total time for projection: 73.432 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.106 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.065 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.174 ms
+    first calculated eigval = -0.850484227200649
+    last  calculated eigval = 0.132893904582634
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.78896276344589
+lambda[   3] =  -0.66321072428774
+lambda[   4] =  -0.58428012764047
+lambda[   5] =  -0.54479395854385
+lambda[   6] =  -0.50156918563400
+lambda[   7] =  -0.47998382510040
+lambda[   8] =  -0.42796526921595
+lambda[   9] =  -0.39935465927301
+lambda[  10] =  -0.34664730660858
+lambda[  11] =  -0.29885978863603
+lambda[  12] =  -0.09046982608725
+lambda[  13] =   0.05545408954631
+lambda[  14] =   0.07496065045948
+lambda[  15] =   0.08485996243897
+lambda[  16] =   0.09751977707413
+lambda[  17] =   0.10740567742143
+lambda[  18] =   0.13289390458263
+==subpsace eigenproblem: bcast eigvals took 0.006 ms
+Total time for solving subspace eigenvalue problem: 0.182 ms
+rank =  0, subspace rotation using ScaLAPACK took 4.846 ms
+rank =  0, Distributing orbital back into band + domain format took 20.719 ms
+rank = 0, Subspace_Rotation used 25.580 ms
+
+Total time for subspace rotation: 25.586 ms
+rank = 0, Efermi =  -0.119086064444 calculate fermi energy took 0.023 ms
+
+ Chebfilt 4, in Chebyshev filtering, lambda_cutoff = 0.232894, lowerbound = -0.945489, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1748.994 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.002 ms
+rank =  0, Distribute orbital to block cyclic format took 18.044 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.939 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.006 ms
+rank =  0, Distribute data + matrix mult took 22.007 ms
+rank =  0, finding HY took 28.393 ms
+rank =  0, distributing HY into block cyclic form took 18.120 ms
+rank =  0, finding Y'*HY took 5.331 ms
+Rank 0, Project_Hamiltonian used 73.879 ms
+Total time for projection: 73.884 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.109 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.075 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.187 ms
+    first calculated eigval = -0.851023972438694
+    last  calculated eigval = 0.074402950624367
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.78947136190874
+lambda[   3] =  -0.66466319554991
+lambda[   4] =  -0.58728683650340
+lambda[   5] =  -0.54930983200816
+lambda[   6] =  -0.51257644491046
+lambda[   7] =  -0.49537615711637
+lambda[   8] =  -0.43709140021700
+lambda[   9] =  -0.41147243719609
+lambda[  10] =  -0.36726640606419
+lambda[  11] =  -0.30981891567657
+lambda[  12] =  -0.14620917837999
+lambda[  13] =  -0.04519079080791
+lambda[  14] =  -0.00102500249684
+lambda[  15] =   0.04597963883636
+lambda[  16] =   0.05024529600037
+lambda[  17] =   0.06553066961744
+lambda[  18] =   0.07440295062437
+==subpsace eigenproblem: bcast eigvals took 0.006 ms
+Total time for solving subspace eigenvalue problem: 0.195 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.732 ms
+rank =  0, Distributing orbital back into band + domain format took 18.084 ms
+rank = 0, Subspace_Rotation used 25.830 ms
+
+Total time for subspace rotation: 25.835 ms
+rank = 0, Efermi =  -0.174825416798 calculate fermi energy took 0.029 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.343 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 7.049 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.463 ms
+rank = 0, Calculating density took 7540.368 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.003 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.004 ms
+======D2D: initiated sending and receiving took 1.201 ms
+rank = 0, D2D took 1.669 ms
+rank = 0, Transfering density took 1.678 ms
+Etot    =   -27.758244700807
+Eband   =   -11.950713924542
+E1      =    24.648212220490
+E2      =    -8.458635878650
+E3      =   -11.292904303762
+Exc     =   -10.082146918092
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 2.776e+00, dEband = 1.195e+00
+rank = 0, Calculating/Estimating energy took 1.034 ms, Etot = -27.758244701, dEtot = 2.776e+00, dEband = 1.195e+00
+Start applying Kerker preconditioner ...
+2-norm of RHS = 44.5952593692097, which took 0.116 ms
+
+iter_count = 96, r_2norm = 1.716e-03, tol*||rhs|| = 1.784e-03
+
+Anderson update took 58.423 ms, out of which F'*F took 27.080 ms; b-Ax took 182.214 ms, out of which Lap took 162.607 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 404.463 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667612, int_b + int_rho = -1.710e-13, checking this took 0.079 ms
+2-norm of RHS = 728.1245838855343, which took 0.139 ms
+
+iter_count = 288, r_2norm = 6.332e-04, tol*||rhs|| = 7.281e-04
+
+Anderson update took 175.738 ms, out of which F'*F took 81.345 ms; b-Ax took 551.223 ms, out of which Lap took 488.813 ms
+Solving Poisson took 1210.957 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.471 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.586 ms
+Total time for convolution: 	 convolve: 5.105756 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.037 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.581 ms
+Total time for convolution: 	 convolve: 5.134282 
+Total time for convolution: 	 convolve: 5.156783 
+Total time for convolution: 	 convolve: 5.107641 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.788 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.039 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.610 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.063 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.217 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.024 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.305 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.024 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.317 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.671 ms
+---Transfer Veff_loc: D2D took 2.296 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 2.812 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 5.448 ms
+
+This SCF took 34092.733 ms, scf error = 2.210e-01
+-------------
+SCF iter 2  
+-------------
+
+ Chebfilt 5, in Chebyshev filtering, lambda_cutoff = 0.174403, lowerbound = -0.851024, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1704.424 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.003 ms
+rank =  0, Distribute orbital to block cyclic format took 18.247 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.878 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.008 ms
+rank =  0, Distribute data + matrix mult took 22.152 ms
+rank =  0, finding HY took 28.685 ms
+rank =  0, distributing HY into block cyclic form took 19.086 ms
+rank =  0, finding Y'*HY took 5.740 ms
+Rank 0, Project_Hamiltonian used 75.698 ms
+Total time for projection: 75.709 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.108 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.072 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.184 ms
+    first calculated eigval = -0.816669563889119
+    last  calculated eigval = 0.053086411116179
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.74993580692831
+lambda[   3] =  -0.63575511178938
+lambda[   4] =  -0.55654801330607
+lambda[   5] =  -0.52005198099068
+lambda[   6] =  -0.47631545483377
+lambda[   7] =  -0.46199416523735
+lambda[   8] =  -0.40748670705583
+lambda[   9] =  -0.38407743382952
+lambda[  10] =  -0.34169923714585
+lambda[  11] =  -0.28025877881083
+lambda[  12] =  -0.12612843544174
+lambda[  13] =  -0.04181995864023
+lambda[  14] =  -0.02439588521706
+lambda[  15] =   0.02142073069442
+lambda[  16] =   0.02711412690222
+lambda[  17] =   0.03906435424914
+lambda[  18] =   0.05308641111618
+==subpsace eigenproblem: bcast eigvals took 0.007 ms
+Total time for solving subspace eigenvalue problem: 0.197 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.790 ms
+rank =  0, Distributing orbital back into band + domain format took 18.305 ms
+rank = 0, Subspace_Rotation used 26.108 ms
+
+Total time for subspace rotation: 26.113 ms
+rank = 0, Efermi =  -0.154744673874 calculate fermi energy took 0.050 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.459 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.863 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.350 ms
+rank = 0, Calculating density took 1818.244 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.002 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.004 ms
+======D2D: initiated sending and receiving took 1.244 ms
+rank = 0, D2D took 1.418 ms
+rank = 0, Transfering density took 1.420 ms
+Etot    =   -27.690754658259
+Eband   =   -11.261584512259
+E1      =    24.024907037088
+E2      =    -8.428761394155
+E3      =   -11.472257113196
+Exc     =   -10.229959429364
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 6.749e-03, dEband = 6.891e-02
+rank = 0, Calculating/Estimating energy took 0.998 ms, Etot = -27.690754658, dEtot = 6.749e-03, dEband = 6.891e-02
+Start applying Kerker preconditioner ...
+2-norm of RHS = 13.7217641010795, which took 0.064 ms
+
+iter_count = 108, r_2norm = 3.322e-04, tol*||rhs|| = 5.489e-04
+
+Anderson update took 65.347 ms, out of which F'*F took 30.472 ms; b-Ax took 205.510 ms, out of which Lap took 184.019 ms
+rank = 0, Mixing (+ precond) took 459.030 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667613, int_b + int_rho = -1.601e-13, checking this took 0.129 ms
+2-norm of RHS = 720.8003190314432, which took 0.167 ms
+
+iter_count = 306, r_2norm = 6.305e-04, tol*||rhs|| = 7.208e-04
+
+Anderson update took 186.928 ms, out of which F'*F took 86.003 ms; b-Ax took 581.438 ms, out of which Lap took 516.098 ms
+Solving Poisson took 1281.429 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.005 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 11.731 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.399 ms
+Total time for convolution: 	 convolve: 5.109130 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 3.622 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.347 ms
+Total time for convolution: 	 convolve: 5.107390 
+Total time for convolution: 	 convolve: 5.108586 
+Total time for convolution: 	 convolve: 5.111423 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.712 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.583 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 24.168 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.223 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 6.860 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.311 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 1.699 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.007 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.254 ms
+---Transfer Veff_loc: D2D took 1.857 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 2.815 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 4.695 ms
+
+This SCF took 29758.654 ms, scf error = 1.538e-01
+-------------
+SCF iter 3  
+-------------
+
+ Chebfilt 6, in Chebyshev filtering, lambda_cutoff = 0.153086, lowerbound = -0.816670, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1711.349 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 18.317 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 4.109 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.004 ms
+rank =  0, Distribute data + matrix mult took 22.446 ms
+rank =  0, finding HY took 29.544 ms
+rank =  0, distributing HY into block cyclic form took 18.552 ms
+rank =  0, finding Y'*HY took 5.378 ms
+Rank 0, Project_Hamiltonian used 75.952 ms
+Total time for projection: 75.964 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.107 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.071 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.181 ms
+    first calculated eigval = -0.751344514395269
+    last  calculated eigval = 0.041771237408720
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.67814784405016
+lambda[   3] =  -0.57857506979364
+lambda[   4] =  -0.49784244720915
+lambda[   5] =  -0.46236242828524
+lambda[   6] =  -0.40769967645382
+lambda[   7] =  -0.39917938807118
+lambda[   8] =  -0.34894996502438
+lambda[   9] =  -0.32836395036760
+lambda[  10] =  -0.29275230159267
+lambda[  11] =  -0.22819327900003
+lambda[  12] =  -0.08077841906606
+lambda[  13] =  -0.03195681055196
+lambda[  14] =  -0.00113189973407
+lambda[  15] =   0.01514314064297
+lambda[  16] =   0.01950210892537
+lambda[  17] =   0.02731665986910
+lambda[  18] =   0.04177123740872
+==subpsace eigenproblem: bcast eigvals took 0.009 ms
+Total time for solving subspace eigenvalue problem: 0.195 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.842 ms
+rank =  0, Distributing orbital back into band + domain format took 18.043 ms
+rank = 0, Subspace_Rotation used 25.897 ms
+
+Total time for subspace rotation: 25.902 ms
+rank = 0, Efermi =  -0.109394657422 calculate fermi energy took 0.046 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.309 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.972 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.380 ms
+rank = 0, Calculating density took 1825.200 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.006 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.004 ms
+======D2D: initiated sending and receiving took 1.227 ms
+rank = 0, D2D took 1.396 ms
+rank = 0, Transfering density took 1.401 ms
+Etot    =   -27.632227261755
+Eband   =    -9.946821731449
+E1      =    22.877425798361
+E2      =    -8.246947632536
+E3      =   -11.872584584348
+Exc     =   -10.557227284476
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 5.853e-03, dEband = 1.315e-01
+rank = 0, Calculating/Estimating energy took 1.780 ms, Etot = -27.632227262, dEtot = 5.853e-03, dEband = 1.315e-01
+Start applying Kerker preconditioner ...
+2-norm of RHS = 5.1902420766595, which took 0.113 ms
+
+iter_count = 108, r_2norm = 1.329e-04, tol*||rhs|| = 2.076e-04
+
+Anderson update took 64.936 ms, out of which F'*F took 30.416 ms; b-Ax took 204.433 ms, out of which Lap took 182.962 ms
+rank = 0, Mixing (+ precond) took 460.752 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667617, int_b + int_rho = -1.201e-13, checking this took 0.116 ms
+2-norm of RHS = 720.5744171669346, which took 0.179 ms
+
+iter_count = 270, r_2norm = 6.338e-04, tol*||rhs|| = 7.206e-04
+
+Anderson update took 161.693 ms, out of which F'*F took 74.805 ms; b-Ax took 511.209 ms, out of which Lap took 452.116 ms
+Solving Poisson took 1121.808 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.002 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.030 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.265 ms
+Total time for convolution: 	 convolve: 5.106019 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.038 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.340 ms
+Total time for convolution: 	 convolve: 5.117868 
+Total time for convolution: 	 convolve: 5.120260 
+Total time for convolution: 	 convolve: 5.116992 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.035 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.799 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.043 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.553 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.108 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.225 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.179 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.320 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.244 ms
+---Transfer Veff_loc: D2D took 1.854 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 2.804 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 4.687 ms
+
+This SCF took 27877.432 ms, scf error = 4.393e-02
+-------------
+SCF iter 4  
+-------------
+
+ Chebfilt 7, in Chebyshev filtering, lambda_cutoff = 0.141771, lowerbound = -0.751345, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1712.197 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 18.198 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.771 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.007 ms
+rank =  0, Distribute data + matrix mult took 21.997 ms
+rank =  0, finding HY took 28.659 ms
+rank =  0, distributing HY into block cyclic form took 18.242 ms
+rank =  0, finding Y'*HY took 5.030 ms
+Rank 0, Project_Hamiltonian used 73.969 ms
+Total time for projection: 73.980 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.105 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.069 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.177 ms
+    first calculated eigval = -0.740664056523217
+    last  calculated eigval = 0.033222880096216
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.66858936692171
+lambda[   3] =  -0.56802947952823
+lambda[   4] =  -0.48682260033062
+lambda[   5] =  -0.45113515778206
+lambda[   6] =  -0.39731127926469
+lambda[   7] =  -0.38893241249447
+lambda[   8] =  -0.33785102495952
+lambda[   9] =  -0.31657388687345
+lambda[  10] =  -0.28468423230169
+lambda[  11] =  -0.22175611530883
+lambda[  12] =  -0.07455851035012
+lambda[  13] =  -0.03230856242076
+lambda[  14] =   0.00310019739421
+lambda[  15] =   0.01339663144575
+lambda[  16] =   0.01687440631782
+lambda[  17] =   0.02242781931257
+lambda[  18] =   0.03322288009622
+==subpsace eigenproblem: bcast eigvals took 0.006 ms
+Total time for solving subspace eigenvalue problem: 0.190 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.857 ms
+rank =  0, Distributing orbital back into band + domain format took 17.984 ms
+rank = 0, Subspace_Rotation used 25.854 ms
+
+Total time for subspace rotation: 25.859 ms
+rank = 0, Efermi =  -0.103174748759 calculate fermi energy took 0.060 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.436 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.936 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.952 ms
+rank = 0, Calculating density took 1824.677 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.007 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 2.022 ms
+rank = 0, D2D took 2.140 ms
+rank = 0, Transfering density took 2.144 ms
+Etot    =   -27.628462423671
+Eband   =    -9.724699227311
+E1      =    22.735955134779
+E2      =    -8.151453739472
+E3      =   -11.950952357648
+Exc     =   -10.616988167184
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 3.765e-04, dEband = 2.221e-02
+rank = 0, Calculating/Estimating energy took 0.962 ms, Etot = -27.628462424, dEtot = 3.765e-04, dEband = 2.221e-02
+Start applying Kerker preconditioner ...
+2-norm of RHS = 1.4329894182270, which took 0.066 ms
+
+iter_count = 114, r_2norm = 3.797e-05, tol*||rhs|| = 5.732e-05
+
+Anderson update took 68.178 ms, out of which F'*F took 31.789 ms; b-Ax took 217.173 ms, out of which Lap took 193.805 ms
+rank = 0, Mixing (+ precond) took 481.646 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667608, int_b + int_rho = -2.037e-13, checking this took 0.115 ms
+2-norm of RHS = 721.0641824040988, which took 0.162 ms
+
+iter_count = 264, r_2norm = 6.075e-04, tol*||rhs|| = 7.211e-04
+
+Anderson update took 158.277 ms, out of which F'*F took 73.323 ms; b-Ax took 500.496 ms, out of which Lap took 443.510 ms
+Solving Poisson took 1099.298 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.111 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.311 ms
+Total time for convolution: 	 convolve: 5.108187 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.038 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.004 ms
+======D2D: initiated sending and receiving took 0.342 ms
+Total time for convolution: 	 convolve: 5.109235 
+Total time for convolution: 	 convolve: 5.117380 
+Total time for convolution: 	 convolve: 5.110916 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.035 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.798 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.560 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.096 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 1.060 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.321 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.029 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.318 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.002 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.227 ms
+---Transfer Veff_loc: D2D took 1.849 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.632 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.510 ms
+
+This SCF took 27838.382 ms, scf error = 1.871e-02
+-------------
+SCF iter 5  
+-------------
+
+ Chebfilt 8, in Chebyshev filtering, lambda_cutoff = 0.133223, lowerbound = -0.740664, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1736.978 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.003 ms
+rank =  0, Distribute orbital to block cyclic format took 18.209 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.745 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.007 ms
+rank =  0, Distribute data + matrix mult took 21.978 ms
+rank =  0, finding HY took 28.482 ms
+rank =  0, distributing HY into block cyclic form took 18.114 ms
+rank =  0, finding Y'*HY took 5.320 ms
+Rank 0, Project_Hamiltonian used 73.922 ms
+Total time for projection: 73.934 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.101 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.075 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.178 ms
+    first calculated eigval = -0.735187678565639
+    last  calculated eigval = 0.027982188192394
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.66306584927351
+lambda[   3] =  -0.56158737557486
+lambda[   4] =  -0.48007306969159
+lambda[   5] =  -0.44440348241507
+lambda[   6] =  -0.39152039166882
+lambda[   7] =  -0.38230367731376
+lambda[   8] =  -0.33103625901028
+lambda[   9] =  -0.30958248476913
+lambda[  10] =  -0.28011748011493
+lambda[  11] =  -0.21745029298217
+lambda[  12] =  -0.07035657219929
+lambda[  13] =  -0.03193340562879
+lambda[  14] =   0.00497233234493
+lambda[  15] =   0.01203572666990
+lambda[  16] =   0.01633919398704
+lambda[  17] =   0.02012049051387
+lambda[  18] =   0.02798218819239
+==subpsace eigenproblem: bcast eigvals took 0.004 ms
+Total time for solving subspace eigenvalue problem: 0.191 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.795 ms
+rank =  0, Distributing orbital back into band + domain format took 17.893 ms
+rank = 0, Subspace_Rotation used 25.701 ms
+
+Total time for subspace rotation: 25.705 ms
+rank = 0, Efermi =  -0.098972810606 calculate fermi energy took 1.161 ms
+rank = 0, --- Calculate rho: sum over local bands took 5.020 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 5.126 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.409 ms
+rank = 0, Calculating density took 1849.605 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.194 ms
+rank = 0, D2D took 1.529 ms
+rank = 0, Transfering density took 1.537 ms
+Etot    =   -27.627120436876
+Eband   =    -9.592656085340
+E1      =    22.678859266500
+E2      =    -8.065396318518
+E3      =   -11.993323907300
+Exc     =   -10.646907582779
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 1.342e-04, dEband = 1.320e-02
+rank = 0, Calculating/Estimating energy took 1.094 ms, Etot = -27.627120437, dEtot = 1.342e-04, dEband = 1.320e-02
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.7760516822567, which took 0.058 ms
+
+iter_count = 108, r_2norm = 3.015e-05, tol*||rhs|| = 3.104e-05
+
+Anderson update took 65.632 ms, out of which F'*F took 30.325 ms; b-Ax took 205.387 ms, out of which Lap took 183.764 ms
+rank = 0, Mixing (+ precond) took 458.461 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667606, int_b + int_rho = -2.328e-13, checking this took 0.119 ms
+2-norm of RHS = 721.3046932903046, which took 0.142 ms
+
+iter_count = 234, r_2norm = 6.417e-04, tol*||rhs|| = 7.213e-04
+
+Anderson update took 140.476 ms, out of which F'*F took 64.555 ms; b-Ax took 442.095 ms, out of which Lap took 391.003 ms
+Solving Poisson took 971.284 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.320 ms
+Total time for convolution: 	 convolve: 5.109573 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.665 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.342 ms
+Total time for convolution: 	 convolve: 5.119327 
+Total time for convolution: 	 convolve: 5.104826 
+Total time for convolution: 	 convolve: 5.125874 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.040 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.800 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.043 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.581 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.536 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.253 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.304 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.028 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.323 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.006 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.245 ms
+---Transfer Veff_loc: D2D took 2.034 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.279 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.348 ms
+
+This SCF took 27739.748 ms, scf error = 6.336e-03
+-------------
+SCF iter 6  
+-------------
+
+ Chebfilt 9, in Chebyshev filtering, lambda_cutoff = 0.127982, lowerbound = -0.735188, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1695.760 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 22.624 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.691 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.137 ms
+rank =  0, Distribute data + matrix mult took 26.469 ms
+rank =  0, finding HY took 28.484 ms
+rank =  0, distributing HY into block cyclic form took 17.923 ms
+rank =  0, finding Y'*HY took 6.296 ms
+Rank 0, Project_Hamiltonian used 79.203 ms
+Total time for projection: 79.220 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.106 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.087 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.195 ms
+    first calculated eigval = -0.732875304290202
+    last  calculated eigval = 0.025402336014195
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.66029279779651
+lambda[   3] =  -0.55919251121382
+lambda[   4] =  -0.47777812343252
+lambda[   5] =  -0.44214441380031
+lambda[   6] =  -0.38905251370222
+lambda[   7] =  -0.37967773306777
+lambda[   8] =  -0.32877313001058
+lambda[   9] =  -0.30749107607222
+lambda[  10] =  -0.27788644198135
+lambda[  11] =  -0.21476304648737
+lambda[  12] =  -0.06800457121937
+lambda[  13] =  -0.03152341273697
+lambda[  14] =   0.00534019172589
+lambda[  15] =   0.01117207707547
+lambda[  16] =   0.01575288312189
+lambda[  17] =   0.01881778348818
+lambda[  18] =   0.02540233601420
+==subpsace eigenproblem: bcast eigvals took 0.017 ms
+Total time for solving subspace eigenvalue problem: 0.221 ms
+rank =  0, subspace rotation using ScaLAPACK took 8.356 ms
+rank =  0, Distributing orbital back into band + domain format took 17.595 ms
+rank = 0, Subspace_Rotation used 25.969 ms
+
+Total time for subspace rotation: 25.975 ms
+rank = 0, Efermi =  -0.096620809625 calculate fermi energy took 0.047 ms
+rank = 0, --- Calculate rho: sum over local bands took 5.117 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.075 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.363 ms
+rank = 0, Calculating density took 1813.266 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 1.181 ms
+rank = 0, D2D took 1.307 ms
+rank = 0, Transfering density took 1.313 ms
+Etot    =   -27.626849541999
+Eband   =    -9.539854186204
+E1      =    22.655455142043
+E2      =    -8.033687666196
+E3      =   -12.000743634320
+Exc     =   -10.651745537279
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 2.709e-05, dEband = 5.280e-03
+rank = 0, Calculating/Estimating energy took 0.977 ms, Etot = -27.626849542, dEtot = 2.709e-05, dEband = 5.280e-03
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.2825853500630, which took 0.087 ms
+
+iter_count = 114, r_2norm = 9.269e-06, tol*||rhs|| = 1.130e-05
+
+Anderson update took 67.889 ms, out of which F'*F took 32.264 ms; b-Ax took 215.441 ms, out of which Lap took 192.739 ms
+rank = 0, Mixing (+ precond) took 481.555 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667615, int_b + int_rho = -1.382e-13, checking this took 0.118 ms
+2-norm of RHS = 721.6025055755501, which took 0.117 ms
+
+iter_count = 246, r_2norm = 6.390e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 146.186 ms, out of which F'*F took 68.386 ms; b-Ax took 463.383 ms, out of which Lap took 410.571 ms
+Solving Poisson took 1019.014 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.038 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.306 ms
+Total time for convolution: 	 convolve: 5.104810 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 80.814 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.348 ms
+Total time for convolution: 	 convolve: 5.111852 
+Total time for convolution: 	 convolve: 5.125399 
+Total time for convolution: 	 convolve: 5.123715 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.038 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.798 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.008 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.158 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.221 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.318 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.096 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.311 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.002 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.233 ms
+---Transfer Veff_loc: D2D took 2.080 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.243 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.359 ms
+
+This SCF took 28001.142 ms, scf error = 3.984e-03
+-------------
+SCF iter 7  
+-------------
+
+ Chebfilt 10, in Chebyshev filtering, lambda_cutoff = 0.125402, lowerbound = -0.732875, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1704.758 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.007 ms
+rank =  0, Distribute orbital to block cyclic format took 18.319 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.812 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.008 ms
+rank =  0, Distribute data + matrix mult took 22.162 ms
+rank =  0, finding HY took 28.376 ms
+rank =  0, distributing HY into block cyclic form took 18.171 ms
+rank =  0, finding Y'*HY took 5.322 ms
+Rank 0, Project_Hamiltonian used 74.065 ms
+Total time for projection: 74.085 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.126 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.070 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.199 ms
+    first calculated eigval = -0.727786451776786
+    last  calculated eigval = 0.026097093204139
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.65542188152266
+lambda[   3] =  -0.55446154410831
+lambda[   4] =  -0.47326215616022
+lambda[   5] =  -0.43748622881748
+lambda[   6] =  -0.38433794395708
+lambda[   7] =  -0.37512341197529
+lambda[   8] =  -0.32433426963688
+lambda[   9] =  -0.30291205187069
+lambda[  10] =  -0.27324710487517
+lambda[  11] =  -0.21025402002281
+lambda[  12] =  -0.06382402240754
+lambda[  13] =  -0.02988103143159
+lambda[  14] =   0.00725037662776
+lambda[  15] =   0.01201049641501
+lambda[  16] =   0.01700239454219
+lambda[  17] =   0.01930887040081
+lambda[  18] =   0.02609709320414
+==subpsace eigenproblem: bcast eigvals took 0.065 ms
+Total time for solving subspace eigenvalue problem: 0.272 ms
+rank =  0, subspace rotation using ScaLAPACK took 8.213 ms
+rank =  0, Distributing orbital back into band + domain format took 17.938 ms
+rank = 0, Subspace_Rotation used 26.175 ms
+
+Total time for subspace rotation: 26.182 ms
+rank = 0, Efermi =  -0.092440260816 calculate fermi energy took 0.063 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.897 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.212 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.375 ms
+rank = 0, Calculating density took 1817.286 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.234 ms
+rank = 0, D2D took 1.409 ms
+rank = 0, Transfering density took 1.416 ms
+Etot    =   -27.626620440284
+Eband   =    -9.437254131788
+E1      =    22.606743791660
+E2      =    -7.975084768960
+E3      =   -12.016717063420
+Exc     =   -10.662775671461
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 2.291e-05, dEband = 1.026e-02
+rank = 0, Calculating/Estimating energy took 1.005 ms, Etot = -27.626620440, dEtot = 2.291e-05, dEband = 1.026e-02
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.2295682416983, which took 0.056 ms
+
+iter_count = 114, r_2norm = 5.570e-06, tol*||rhs|| = 9.183e-06
+
+Anderson update took 68.307 ms, out of which F'*F took 32.464 ms; b-Ax took 217.436 ms, out of which Lap took 194.812 ms
+rank = 0, Mixing (+ precond) took 483.228 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667616, int_b + int_rho = -1.273e-13, checking this took 0.112 ms
+2-norm of RHS = 721.5747051733116, which took 0.183 ms
+
+iter_count = 222, r_2norm = 7.200e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 132.749 ms, out of which F'*F took 62.381 ms; b-Ax took 418.481 ms, out of which Lap took 374.131 ms
+Solving Poisson took 923.666 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.325 ms
+Total time for convolution: 	 convolve: 5.110137 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 66.226 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.362 ms
+Total time for convolution: 	 convolve: 5.102443 
+Total time for convolution: 	 convolve: 5.120744 
+Total time for convolution: 	 convolve: 5.108609 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.036 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 1.051 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.035 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.586 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.087 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.209 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.027 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.292 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.327 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.244 ms
+---Transfer Veff_loc: D2D took 2.063 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.249 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.348 ms
+
+This SCF took 27750.494 ms, scf error = 1.939e-03
+-------------
+SCF iter 8  
+-------------
+
+ Chebfilt 11, in Chebyshev filtering, lambda_cutoff = 0.126097, lowerbound = -0.727786, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1726.559 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.004 ms
+rank =  0, Distribute orbital to block cyclic format took 18.859 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.820 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.008 ms
+rank =  0, Distribute data + matrix mult took 22.707 ms
+rank =  0, finding HY took 28.663 ms
+rank =  0, distributing HY into block cyclic form took 18.173 ms
+rank =  0, finding Y'*HY took 5.157 ms
+Rank 0, Project_Hamiltonian used 74.737 ms
+Total time for projection: 74.753 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.117 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.063 ms
+rank = 0, Solve_Generalized_EigenProblem used 1.125 ms
+    first calculated eigval = -0.724946775629578
+    last  calculated eigval = 0.027305245164705
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.65255582190689
+lambda[   3] =  -0.55184547169016
+lambda[   4] =  -0.47069085221412
+lambda[   5] =  -0.43488968051611
+lambda[   6] =  -0.38159837072070
+lambda[   7] =  -0.37248429991659
+lambda[   8] =  -0.32179242995477
+lambda[   9] =  -0.30037235082092
+lambda[  10] =  -0.27061553133959
+lambda[  11] =  -0.20760794633348
+lambda[  12] =  -0.06127002797946
+lambda[  13] =  -0.02789335523701
+lambda[  14] =   0.00916495045197
+lambda[  15] =   0.01385129985898
+lambda[  16] =   0.01857518319524
+lambda[  17] =   0.02075659040842
+lambda[  18] =   0.02730524516470
+==subpsace eigenproblem: bcast eigvals took 0.510 ms
+Total time for solving subspace eigenvalue problem: 1.645 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.740 ms
+rank =  0, Distributing orbital back into band + domain format took 17.929 ms
+rank = 0, Subspace_Rotation used 25.684 ms
+
+Total time for subspace rotation: 25.691 ms
+rank = 0, Efermi =  -0.089886266387 calculate fermi energy took 0.052 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.680 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.786 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.377 ms
+rank = 0, Calculating density took 1840.634 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.004 ms
+======D2D: initiated sending and receiving took 1.230 ms
+rank = 0, D2D took 1.419 ms
+rank = 0, Transfering density took 1.429 ms
+Etot    =   -27.626547722802
+Eband   =    -9.378799064333
+E1      =    22.574197499333
+E2      =    -7.947463385592
+E3      =   -12.024239324604
+Exc     =   -10.668512606924
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 7.272e-06, dEband = 5.846e-03
+rank = 0, Calculating/Estimating energy took 1.041 ms, Etot = -27.626547723, dEtot = 7.272e-06, dEband = 5.846e-03
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.1030148727284, which took 0.095 ms
+
+iter_count = 114, r_2norm = 2.738e-06, tol*||rhs|| = 4.121e-06
+
+Anderson update took 69.896 ms, out of which F'*F took 31.995 ms; b-Ax took 214.937 ms, out of which Lap took 191.660 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 484.898 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667610, int_b + int_rho = -1.892e-13, checking this took 0.114 ms
+2-norm of RHS = 721.5612973694690, which took 0.119 ms
+
+iter_count = 216, r_2norm = 7.040e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 132.428 ms, out of which F'*F took 60.946 ms; b-Ax took 411.501 ms, out of which Lap took 366.801 ms
+Solving Poisson took 906.173 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.002 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.323 ms
+Total time for convolution: 	 convolve: 5.107743 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 111.209 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.004 ms
+======D2D: initiated sending and receiving took 1.363 ms
+Total time for convolution: 	 convolve: 5.111300 
+Total time for convolution: 	 convolve: 5.111791 
+Total time for convolution: 	 convolve: 5.101907 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.803 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.005 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.040 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.560 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.118 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.222 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.024 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.299 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.028 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.289 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.002 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.228 ms
+---Transfer Veff_loc: D2D took 2.051 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.238 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.324 ms
+
+This SCF took 27759.456 ms, scf error = 1.423e-03
+-------------
+SCF iter 9  
+-------------
+
+ Chebfilt 12, in Chebyshev filtering, lambda_cutoff = 0.127305, lowerbound = -0.724947, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1703.269 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 18.337 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.826 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.010 ms
+rank =  0, Distribute data + matrix mult took 22.191 ms
+rank =  0, finding HY took 28.460 ms
+rank =  0, distributing HY into block cyclic form took 18.101 ms
+rank =  0, finding Y'*HY took 4.662 ms
+Rank 0, Project_Hamiltonian used 74.456 ms
+Total time for projection: 74.471 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.123 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.066 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.192 ms
+    first calculated eigval = -0.723586489259667
+    last  calculated eigval = 0.029692894864705
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.65118035212211
+lambda[   3] =  -0.55042722915733
+lambda[   4] =  -0.46924219369706
+lambda[   5] =  -0.43345419647840
+lambda[   6] =  -0.38024692046079
+lambda[   7] =  -0.37104157749871
+lambda[   8] =  -0.32033958592531
+lambda[   9] =  -0.29891620585750
+lambda[  10] =  -0.26918660358321
+lambda[  11] =  -0.20617494858959
+lambda[  12] =  -0.05967209455826
+lambda[  13] =  -0.02426830157129
+lambda[  14] =   0.01231339757702
+lambda[  15] =   0.01745712198945
+lambda[  16] =   0.02197616572343
+lambda[  17] =   0.02434134507651
+lambda[  18] =   0.02969289486470
+==subpsace eigenproblem: bcast eigvals took 0.061 ms
+Total time for solving subspace eigenvalue problem: 0.258 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.721 ms
+rank =  0, Distributing orbital back into band + domain format took 17.900 ms
+rank = 0, Subspace_Rotation used 25.635 ms
+
+Total time for subspace rotation: 25.641 ms
+rank = 0, Efermi =  -0.088288332900 calculate fermi energy took 0.055 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.781 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.252 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.432 ms
+rank = 0, Calculating density took 1815.279 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.194 ms
+rank = 0, D2D took 1.644 ms
+rank = 0, Transfering density took 1.652 ms
+Etot    =   -27.626496656617
+Eband   =    -9.347592607448
+E1      =    22.561117170030
+E2      =    -7.929068024384
+E3      =   -12.025500215931
+Exc     =   -10.669453198439
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 5.107e-06, dEband = 3.121e-03
+rank = 0, Calculating/Estimating energy took 0.963 ms, Etot = -27.626496657, dEtot = 5.107e-06, dEband = 3.121e-03
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.0575047630775, which took 0.057 ms
+
+iter_count = 114, r_2norm = 1.604e-06, tol*||rhs|| = 2.300e-06
+
+Anderson update took 68.484 ms, out of which F'*F took 32.010 ms; b-Ax took 214.469 ms, out of which Lap took 191.709 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 482.464 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667622, int_b + int_rho = -6.548e-14, checking this took 0.121 ms
+2-norm of RHS = 721.5746450510242, which took 0.191 ms
+
+iter_count = 198, r_2norm = 6.167e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 119.499 ms, out of which F'*F took 55.474 ms; b-Ax took 378.121 ms, out of which Lap took 334.928 ms
+Solving Poisson took 833.417 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.037 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.318 ms
+Total time for convolution: 	 convolve: 5.109125 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 91.543 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.369 ms
+Total time for convolution: 	 convolve: 5.101582 
+Total time for convolution: 	 convolve: 5.120478 
+Total time for convolution: 	 convolve: 5.102612 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.797 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.032 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.599 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.097 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.234 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.027 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.292 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.027 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.308 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.423 ms
+---Transfer Veff_loc: D2D took 2.099 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.271 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.403 ms
+
+This SCF took 27636.686 ms, scf error = 6.782e-04
+-------------
+SCF iter 10  
+-------------
+
+ Chebfilt 13, in Chebyshev filtering, lambda_cutoff = 0.129693, lowerbound = -0.723586, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1761.392 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 22.528 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 11.907 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.009 ms
+rank =  0, Distribute data + matrix mult took 34.464 ms
+rank =  0, finding HY took 29.678 ms
+rank =  0, distributing HY into block cyclic form took 18.955 ms
+rank =  0, finding Y'*HY took 5.752 ms
+Rank 0, Project_Hamiltonian used 88.888 ms
+Total time for projection: 88.902 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.116 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.077 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.196 ms
+    first calculated eigval = -0.722279356863238
+    last  calculated eigval = 0.032584267795457
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.64990199630556
+lambda[   3] =  -0.54913619075394
+lambda[   4] =  -0.46799614662489
+lambda[   5] =  -0.43219555844966
+lambda[   6] =  -0.37897192061154
+lambda[   7] =  -0.36978470459574
+lambda[   8] =  -0.31909269155534
+lambda[   9] =  -0.29766471845595
+lambda[  10] =  -0.26793169880475
+lambda[  11] =  -0.20492427815000
+lambda[  12] =  -0.05840342986094
+lambda[  13] =  -0.02031462931371
+lambda[  14] =   0.01457197193009
+lambda[  15] =   0.02050036466124
+lambda[  16] =   0.02655860816603
+lambda[  17] =   0.02824948406492
+lambda[  18] =   0.03258426779546
+==subpsace eigenproblem: bcast eigvals took 0.019 ms
+Total time for solving subspace eigenvalue problem: 0.223 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.740 ms
+rank =  0, Distributing orbital back into band + domain format took 17.823 ms
+rank = 0, Subspace_Rotation used 25.576 ms
+
+Total time for subspace rotation: 25.582 ms
+rank = 0, Efermi =  -0.087019668327 calculate fermi energy took 0.055 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.534 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 7.235 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.406 ms
+rank = 0, Calculating density took 1888.938 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 1.120 ms
+rank = 0, D2D took 1.852 ms
+rank = 0, Transfering density took 1.857 ms
+Etot    =   -27.626563046458
+Eband   =    -9.319758524483
+E1      =    22.546617534655
+E2      =    -7.915056663415
+E3      =   -12.028599040934
+Exc     =   -10.671941499905
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 6.639e-06, dEband = 2.783e-03
+rank = 0, Calculating/Estimating energy took 1.038 ms, Etot = -27.626563046, dEtot = 6.639e-06, dEband = 2.783e-03
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.0396381476144, which took 0.108 ms
+
+iter_count = 114, r_2norm = 1.169e-06, tol*||rhs|| = 1.586e-06
+
+Anderson update took 71.254 ms, out of which F'*F took 33.053 ms; b-Ax took 218.788 ms, out of which Lap took 196.701 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 486.454 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667603, int_b + int_rho = -2.547e-13, checking this took 0.118 ms
+2-norm of RHS = 721.5828596241962, which took 0.113 ms
+
+iter_count = 168, r_2norm = 5.981e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 100.715 ms, out of which F'*F took 46.762 ms; b-Ax took 318.076 ms, out of which Lap took 282.143 ms
+Solving Poisson took 703.437 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.002 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.035 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.318 ms
+Total time for convolution: 	 convolve: 5.109188 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 105.170 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.370 ms
+Total time for convolution: 	 convolve: 5.104623 
+Total time for convolution: 	 convolve: 5.108970 
+Total time for convolution: 	 convolve: 5.106462 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.035 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.798 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.592 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.076 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.218 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.319 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.327 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.409 ms
+---Transfer Veff_loc: D2D took 2.067 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.831 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 4.288 ms
+
+This SCF took 27869.502 ms, scf error = 3.765e-04
+-------------
+SCF iter 11  
+-------------
+
+ Chebfilt 14, in Chebyshev filtering, lambda_cutoff = 0.132584, lowerbound = -0.722279, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1722.118 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 18.286 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.875 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.006 ms
+rank =  0, Distribute data + matrix mult took 22.188 ms
+rank =  0, finding HY took 28.385 ms
+rank =  0, distributing HY into block cyclic form took 18.125 ms
+rank =  0, finding Y'*HY took 5.280 ms
+Rank 0, Project_Hamiltonian used 74.009 ms
+Total time for projection: 74.023 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.107 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.086 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.196 ms
+    first calculated eigval = -0.721967851684237
+    last  calculated eigval = 0.033986519693157
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.64960722771085
+lambda[   3] =  -0.54884408753672
+lambda[   4] =  -0.46771683310638
+lambda[   5] =  -0.43191006007940
+lambda[   6] =  -0.37868138826883
+lambda[   7] =  -0.36950757933555
+lambda[   8] =  -0.31881798609668
+lambda[   9] =  -0.29738427080336
+lambda[  10] =  -0.26761835436994
+lambda[  11] =  -0.20461703082183
+lambda[  12] =  -0.05810816569488
+lambda[  13] =  -0.01846051081725
+lambda[  14] =   0.01553973507757
+lambda[  15] =   0.02123077841356
+lambda[  16] =   0.02834154261585
+lambda[  17] =   0.03017237725925
+lambda[  18] =   0.03398651969316
+==subpsace eigenproblem: bcast eigvals took 0.021 ms
+Total time for solving subspace eigenvalue problem: 0.225 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.736 ms
+rank =  0, Distributing orbital back into band + domain format took 17.635 ms
+rank = 0, Subspace_Rotation used 25.383 ms
+
+Total time for subspace rotation: 25.388 ms
+rank = 0, Efermi =  -0.086724404104 calculate fermi energy took 0.053 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.675 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.580 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.428 ms
+rank = 0, Calculating density took 1833.567 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.186 ms
+rank = 0, D2D took 1.642 ms
+rank = 0, Transfering density took 1.648 ms
+Etot    =   -27.626608512510
+Eband   =    -9.313345341759
+E1      =    22.543578980853
+E2      =    -7.911651540675
+E3      =   -12.028727905565
+Exc     =   -10.672085336769
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 4.547e-06, dEband = 6.413e-04
+rank = 0, Calculating/Estimating energy took 0.981 ms, Etot = -27.626608513, dEtot = 4.547e-06, dEband = 6.413e-04
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.0340622597391, which took 0.057 ms
+
+iter_count = 114, r_2norm = 8.767e-07, tol*||rhs|| = 1.362e-06
+
+Anderson update took 68.675 ms, out of which F'*F took 32.020 ms; b-Ax took 215.599 ms, out of which Lap took 192.912 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 481.895 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667612, int_b + int_rho = -1.673e-13, checking this took 0.116 ms
+2-norm of RHS = 721.5888572296059, which took 0.067 ms
+
+iter_count = 162, r_2norm = 6.325e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 97.507 ms, out of which F'*F took 45.574 ms; b-Ax took 309.140 ms, out of which Lap took 274.894 ms
+Solving Poisson took 676.583 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.314 ms
+Total time for convolution: 	 convolve: 5.106627 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 85.815 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.353 ms
+Total time for convolution: 	 convolve: 5.110763 
+Total time for convolution: 	 convolve: 5.120263 
+Total time for convolution: 	 convolve: 5.107144 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.036 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.795 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.036 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.546 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.058 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.211 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.028 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.314 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.025 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.317 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.006 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.185 ms
+---Transfer Veff_loc: D2D took 2.760 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.255 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 4.050 ms
+
+This SCF took 27494.994 ms, scf error = 2.650e-04
+-------------
+SCF iter 12  
+-------------
+
+ Chebfilt 15, in Chebyshev filtering, lambda_cutoff = 0.133987, lowerbound = -0.721968, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1701.762 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 18.118 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.808 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.007 ms
+rank =  0, Distribute data + matrix mult took 21.958 ms
+rank =  0, finding HY took 28.582 ms
+rank =  0, distributing HY into block cyclic form took 18.156 ms
+rank =  0, finding Y'*HY took 5.278 ms
+Rank 0, Project_Hamiltonian used 74.006 ms
+Total time for projection: 74.022 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.107 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.080 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.190 ms
+    first calculated eigval = -0.721770549433929
+    last  calculated eigval = 0.034869825622411
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.64938749749402
+lambda[   3] =  -0.54863646312921
+lambda[   4] =  -0.46749591132241
+lambda[   5] =  -0.43169697631035
+lambda[   6] =  -0.37847231495501
+lambda[   7] =  -0.36928464808833
+lambda[   8] =  -0.31860181244300
+lambda[   9] =  -0.29717742891980
+lambda[  10] =  -0.26741860192611
+lambda[  11] =  -0.20440761866629
+lambda[  12] =  -0.05798293594406
+lambda[  13] =  -0.01776488780738
+lambda[  14] =   0.01616494304456
+lambda[  15] =   0.02121114351950
+lambda[  16] =   0.02803425915587
+lambda[  17] =   0.03078833830403
+lambda[  18] =   0.03486982562241
+==subpsace eigenproblem: bcast eigvals took 0.021 ms
+Total time for solving subspace eigenvalue problem: 0.220 ms
+rank =  0, subspace rotation using ScaLAPACK took 5.640 ms
+rank =  0, Distributing orbital back into band + domain format took 19.717 ms
+rank = 0, Subspace_Rotation used 25.373 ms
+
+Total time for subspace rotation: 25.378 ms
+rank = 0, Efermi =  -0.086599174285 calculate fermi energy took 0.046 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.708 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.550 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.440 ms
+rank = 0, Calculating density took 1813.210 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.189 ms
+rank = 0, D2D took 1.644 ms
+rank = 0, Transfering density took 1.650 ms
+Etot    =   -27.626686747651
+Eband   =    -9.308699647503
+E1      =    22.541510946389
+E2      =    -7.908970703038
+E3      =   -12.028920112477
+Exc     =   -10.672252600976
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 7.824e-06, dEband = 4.646e-04
+rank = 0, Calculating/Estimating energy took 1.012 ms, Etot = -27.626686748, dEtot = 7.824e-06, dEband = 4.646e-04
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.0306878484987, which took 0.134 ms
+
+iter_count = 108, r_2norm = 1.198e-06, tol*||rhs|| = 1.228e-06
+
+Anderson update took 64.792 ms, out of which F'*F took 30.320 ms; b-Ax took 207.261 ms, out of which Lap took 184.670 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 459.916 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667619, int_b + int_rho = -1.019e-13, checking this took 0.125 ms
+2-norm of RHS = 721.5895881830070, which took 0.179 ms
+
+iter_count = 126, r_2norm = 6.907e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 75.973 ms, out of which F'*F took 35.491 ms; b-Ax took 239.088 ms, out of which Lap took 214.040 ms
+Solving Poisson took 528.665 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.035 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.330 ms
+Total time for convolution: 	 convolve: 5.104881 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 105.666 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.382 ms
+Total time for convolution: 	 convolve: 5.102032 
+Total time for convolution: 	 convolve: 5.116348 
+Total time for convolution: 	 convolve: 5.099920 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.045 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.811 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.565 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.136 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.218 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.025 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.304 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.028 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.686 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.002 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.014 ms
+======D2D: initiated sending and receiving took 0.642 ms
+---Transfer Veff_loc: D2D took 2.086 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.232 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.350 ms
+
+This SCF took 27298.955 ms, scf error = 1.841e-04
+-------------
+SCF iter 13  
+-------------
+
+ Chebfilt 16, in Chebyshev filtering, lambda_cutoff = 0.134870, lowerbound = -0.721771, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1706.106 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 18.133 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.765 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.007 ms
+rank =  0, Distribute data + matrix mult took 21.923 ms
+rank =  0, finding HY took 28.596 ms
+rank =  0, distributing HY into block cyclic form took 18.099 ms
+rank =  0, finding Y'*HY took 5.257 ms
+Rank 0, Project_Hamiltonian used 73.911 ms
+Total time for projection: 73.928 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.103 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.083 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.189 ms
+    first calculated eigval = -0.721712542703282
+    last  calculated eigval = 0.035287295926350
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.64932410782645
+lambda[   3] =  -0.54857882065321
+lambda[   4] =  -0.46743437755789
+lambda[   5] =  -0.43163777700935
+lambda[   6] =  -0.37841173931690
+lambda[   7] =  -0.36922355279212
+lambda[   8] =  -0.31854185478645
+lambda[   9] =  -0.29712062054284
+lambda[  10] =  -0.26736104679946
+lambda[  11] =  -0.20434892629594
+lambda[  12] =  -0.05795702512544
+lambda[  13] =  -0.01727560130210
+lambda[  14] =   0.01629541136378
+lambda[  15] =   0.02126197810638
+lambda[  16] =   0.02820995630039
+lambda[  17] =   0.03113166230966
+lambda[  18] =   0.03528729592635
+==subpsace eigenproblem: bcast eigvals took 0.035 ms
+Total time for solving subspace eigenvalue problem: 0.231 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.735 ms
+rank =  0, Distributing orbital back into band + domain format took 17.731 ms
+rank = 0, Subspace_Rotation used 25.481 ms
+
+Total time for subspace rotation: 25.486 ms
+rank = 0, Efermi =  -0.086573263522 calculate fermi energy took 0.048 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.780 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.443 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.437 ms
+rank = 0, Calculating density took 1817.534 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.185 ms
+rank = 0, D2D took 1.586 ms
+rank = 0, Transfering density took 1.593 ms
+Etot    =   -27.626708028409
+Eband   =    -9.307390734693
+E1      =    22.540899720178
+E2      =    -7.908258335567
+E3      =   -12.028926553535
+Exc     =   -10.672265641920
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 2.128e-06, dEband = 1.309e-04
+rank = 0, Calculating/Estimating energy took 1.411 ms, Etot = -27.626708028, dEtot = 2.128e-06, dEband = 1.309e-04
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.0245382195132, which took 0.063 ms
+
+iter_count = 108, r_2norm = 8.329e-07, tol*||rhs|| = 9.815e-07
+
+Anderson update took 64.661 ms, out of which F'*F took 30.976 ms; b-Ax took 205.630 ms, out of which Lap took 183.522 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 457.234 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667613, int_b + int_rho = -1.528e-13, checking this took 0.128 ms
+2-norm of RHS = 721.5891019821868, which took 0.127 ms
+
+iter_count = 132, r_2norm = 5.953e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 79.420 ms, out of which F'*F took 37.148 ms; b-Ax took 251.881 ms, out of which Lap took 224.874 ms
+Solving Poisson took 552.351 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.331 ms
+Total time for convolution: 	 convolve: 5.103249 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 110.971 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.368 ms
+Total time for convolution: 	 convolve: 5.106193 
+Total time for convolution: 	 convolve: 5.132498 
+Total time for convolution: 	 convolve: 5.141884 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.034 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.811 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.032 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.550 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.071 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.229 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.056 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 1.139 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.027 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.318 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.006 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.239 ms
+---Transfer Veff_loc: D2D took 2.066 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.271 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.376 ms
+
+This SCF took 27382.089 ms, scf error = 1.509e-04
+-------------
+SCF iter 14  
+-------------
+
+ Chebfilt 17, in Chebyshev filtering, lambda_cutoff = 0.135287, lowerbound = -0.721713, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1709.507 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 18.220 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.814 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.007 ms
+rank =  0, Distribute data + matrix mult took 22.059 ms
+rank =  0, finding HY took 28.854 ms
+rank =  0, distributing HY into block cyclic form took 18.060 ms
+rank =  0, finding Y'*HY took 5.324 ms
+Rank 0, Project_Hamiltonian used 74.328 ms
+Total time for projection: 74.341 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.093 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.079 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.175 ms
+    first calculated eigval = -0.721612779501015
+    last  calculated eigval = 0.035241390773197
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.64922838673257
+lambda[   3] =  -0.54848088310627
+lambda[   4] =  -0.46733797291234
+lambda[   5] =  -0.43154189243775
+lambda[   6] =  -0.37831446524648
+lambda[   7] =  -0.36913062737563
+lambda[   8] =  -0.31844518053033
+lambda[   9] =  -0.29702598522800
+lambda[  10] =  -0.26726548993423
+lambda[  11] =  -0.20425679315655
+lambda[  12] =  -0.05789580466467
+lambda[  13] =  -0.01704859288638
+lambda[  14] =   0.01596738716163
+lambda[  15] =   0.02115239795865
+lambda[  16] =   0.02846091868265
+lambda[  17] =   0.03127433322015
+lambda[  18] =   0.03524139077320
+==subpsace eigenproblem: bcast eigvals took 0.021 ms
+Total time for solving subspace eigenvalue problem: 0.202 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.733 ms
+rank =  0, Distributing orbital back into band + domain format took 17.989 ms
+rank = 0, Subspace_Rotation used 25.736 ms
+
+Total time for subspace rotation: 25.743 ms
+rank = 0, Efermi =  -0.086512043028 calculate fermi energy took 0.054 ms
+rank = 0, --- Calculate rho: sum over local bands took 4.804 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 6.348 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.410 ms
+rank = 0, Calculating density took 1821.493 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.658 ms
+rank = 0, D2D took 1.794 ms
+rank = 0, Transfering density took 1.801 ms
+Etot    =   -27.626733313313
+Eband   =    -9.305280914446
+E1      =    22.539889637081
+E2      =    -7.907124393169
+E3      =   -12.028969548316
+Exc     =   -10.672299716358
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 2.528e-06, dEband = 2.110e-04
+rank = 0, Calculating/Estimating energy took 0.989 ms, Etot = -27.626733313, dEtot = 2.528e-06, dEband = 2.110e-04
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.0225960855051, which took 0.061 ms
+
+iter_count = 108, r_2norm = 6.989e-07, tol*||rhs|| = 9.038e-07
+
+Anderson update took 64.518 ms, out of which F'*F took 30.949 ms; b-Ax took 206.384 ms, out of which Lap took 183.508 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 458.646 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667618, int_b + int_rho = -1.091e-13, checking this took 0.139 ms
+2-norm of RHS = 721.5891727619901, which took 0.178 ms
+
+iter_count = 114, r_2norm = 6.691e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 68.262 ms, out of which F'*F took 32.018 ms; b-Ax took 217.113 ms, out of which Lap took 193.103 ms
+Solving Poisson took 477.418 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.031 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.317 ms
+Total time for convolution: 	 convolve: 5.107573 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 82.928 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.372 ms
+Total time for convolution: 	 convolve: 5.114650 
+Total time for convolution: 	 convolve: 5.101093 
+Total time for convolution: 	 convolve: 5.115592 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.045 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.799 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.039 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.549 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.193 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.090 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.317 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.321 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.006 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.241 ms
+---Transfer Veff_loc: D2D took 2.070 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 1.270 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 3.374 ms
+
+This SCF took 27585.296 ms, scf error = 1.152e-04
+-------------
+SCF iter 15  
+-------------
+
+ Chebfilt 18, in Chebyshev filtering, lambda_cutoff = 0.135241, lowerbound = -0.721613, upperbound = 267.577496
+
+Start Chebyshev filtering ... 
+Total time for Chebyshev filtering (3 columns, degree = 45): 1711.147 ms
+New BLOCK CYCLIC DOMAIN: nproc = 6, dims = (6, 1), Elapsed time is 0.005 ms
+rank =  0, Distribute orbital to block cyclic format took 18.275 ms
+rank = 0, STARTING PDSYRK ...
+rank =  0, Psi'*Psi in block cyclic format in each blacscomm took 3.812 ms
+rank =  0, Allreduce to sum Psi'*Psi over dmcomm took 0.007 ms
+rank =  0, Distribute data + matrix mult took 22.111 ms
+rank =  0, finding HY took 28.545 ms
+rank =  0, distributing HY into block cyclic form took 18.110 ms
+rank =  0, finding Y'*HY took 5.296 ms
+Rank 0, Project_Hamiltonian used 74.097 ms
+Total time for projection: 74.109 ms
+Start solving generalized eigenvalue problem ...
+==generalized eigenproblem: info = 0, solving generalized eigenproblem using LAPACKE_dsygvd: 0.091 ms
+==generalized eigenproblem: distribute subspace eigenvectors into block cyclic format: 0.083 ms
+rank = 0, Solve_Generalized_EigenProblem used 0.177 ms
+    first calculated eigval = -0.721507901592005
+    last  calculated eigval = 0.034818468883500
+The last 17 eigenvalues of kpoints #1 and spin #0 are (Nelectron = 22):
+lambda[   2] =  -0.64912866500694
+lambda[   3] =  -0.54837961923799
+lambda[   4] =  -0.46724214715071
+lambda[   5] =  -0.43144400257889
+lambda[   6] =  -0.37821432538492
+lambda[   7] =  -0.36903469474977
+lambda[   8] =  -0.31834871747954
+lambda[   9] =  -0.29692930832933
+lambda[  10] =  -0.26716891274184
+lambda[  11] =  -0.20416270560680
+lambda[  12] =  -0.05782531038561
+lambda[  13] =  -0.01707024140132
+lambda[  14] =   0.01568605874325
+lambda[  15] =   0.02083746511009
+lambda[  16] =   0.02869017474863
+lambda[  17] =   0.03080839918196
+lambda[  18] =   0.03481846888350
+==subpsace eigenproblem: bcast eigvals took 0.020 ms
+Total time for solving subspace eigenvalue problem: 0.205 ms
+rank =  0, subspace rotation using ScaLAPACK took 7.714 ms
+rank =  0, Distributing orbital back into band + domain format took 17.883 ms
+rank = 0, Subspace_Rotation used 26.051 ms
+
+Total time for subspace rotation: 26.057 ms
+rank = 0, Efermi =  -0.086441548835 calculate fermi energy took 0.616 ms
+rank = 0, --- Calculate rho: sum over local bands took 5.070 ms
+rank = 0, --- Calculate rho: reduce over all band groups took 5.262 ms
+rank = 0, --- Scale rho: scale by 1/dV took 0.376 ms
+rank = 0, Calculating density took 1822.927 ms
+rank = 0, starting to transfer density...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.005 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 1.178 ms
+rank = 0, D2D took 1.507 ms
+rank = 0, Transfering density took 1.513 ms
+Etot    =   -27.626745746747
+Eband   =    -9.303122001838
+E1      =    22.538770348378
+E2      =    -7.906022176825
+E3      =   -12.029158556442
+Exc     =   -10.672438565479
+Esc     =   -50.125136259993
+Entropy =    -0.000000001082
+dE = 1.243e-06, dEband = 2.159e-04
+rank = 0, Calculating/Estimating energy took 0.990 ms, Etot = -27.626745747, dEtot = 1.243e-06, dEband = 2.159e-04
+Start applying Kerker preconditioner ...
+2-norm of RHS = 0.0147034466124, which took 0.062 ms
+
+iter_count = 108, r_2norm = 5.191e-07, tol*||rhs|| = 5.881e-07
+
+Anderson update took 64.989 ms, out of which F'*F took 30.231 ms; b-Ax took 205.893 ms, out of which Lap took 183.901 ms
+WARNING: The density after mixing has negative components!
+rank = 0, Mixing (+ precond) took 458.468 ms
+Start calculating electrostatic potential ... 
+Start calculating rhs of the poisson problem
+rank = 0, int_b = -22.00000003667629, int_rho =  22.00000003667615, int_b + int_rho = -1.419e-13, checking this took 0.116 ms
+2-norm of RHS = 721.5881338531716, which took 0.145 ms
+
+iter_count = 96, r_2norm = 6.333e-04, tol*||rhs|| = 7.216e-04
+
+Anderson update took 57.583 ms, out of which F'*F took 26.988 ms; b-Ax took 182.668 ms, out of which Lap took 163.065 ms
+Solving Poisson took 402.404 ms
+Start calculating Vx (GGA_CONV_PBE_MULTIPOLE)
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.036 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.318 ms
+Total time for convolution: 	 convolve: 5.111040 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 114.313 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.349 ms
+Total time for convolution: 	 convolve: 5.103025 
+Total time for convolution: 	 convolve: 5.107103 
+Total time for convolution: 	 convolve: 5.110854 
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.003 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.036 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.799 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.037 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.014 ms
+======D2D: initiated sending and receiving took 0.882 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.082 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.222 ms
+Saving X potential contribution from PBE.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.013 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.156 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.290 ms
+Start calculating Vc (GGA_CONV_PBE or GGA_CONV_PBE_MULTIPOLE) ...
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.001 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.026 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.316 ms
+Transmitting Veff_loc from phi-domain to psi-domain (LOCAL) ...
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.002 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.003 ms
+======D2D: initiated sending and receiving took 0.228 ms
+---Transfer Veff_loc: D2D took 2.071 ms
+---Transfer Veff_loc: bcast btw/ spincomms of 1st kptcomm took 0.000 ms
+---Transfer Veff_loc: bcast btw/ kptcomms of 1st bandcomm took 0.000 ms
+---Transfer Veff_loc: mpi_bcast (count = 500000) to all bandcomms took 0.797 ms
+rank = 0, Transfering Veff from phi-domain to psi-domain took 2.901 ms
+
+This SCF took 27192.466 ms, scf error = 7.987e-05
+The last 17 occupations of kpoints #1 are (Nelectron = 22):
+lambda[   2] =  -0.64912866500694, occ[   2] =   2.00000000000000
+lambda[   3] =  -0.54837961923799, occ[   3] =   2.00000000000000
+lambda[   4] =  -0.46724214715071, occ[   4] =   2.00000000000000
+lambda[   5] =  -0.43144400257889, occ[   5] =   2.00000000000000
+lambda[   6] =  -0.37821432538492, occ[   6] =   2.00000000000000
+lambda[   7] =  -0.36903469474977, occ[   7] =   2.00000000000000
+lambda[   8] =  -0.31834871747954, occ[   8] =   2.00000000000000
+lambda[   9] =  -0.29692930832933, occ[   9] =   2.00000000000000
+lambda[  10] =  -0.26716891274184, occ[  10] =   2.00000000000000
+lambda[  11] =  -0.20416270560680, occ[  11] =   2.00000000000000
+lambda[  12] =  -0.05782531038561, occ[  12] =   0.00000003667614
+lambda[  13] =  -0.01707024140132, occ[  13] =   0.00000000000000
+lambda[  14] =   0.01568605874325, occ[  14] =   0.00000000000000
+lambda[  15] =   0.02083746511009, occ[  15] =   0.00000000000000
+lambda[  16] =   0.02869017474863, occ[  16] =   0.00000000000000
+lambda[  17] =   0.03080839918196, occ[  17] =   0.00000000000000
+lambda[  18] =   0.03481846888350, occ[  18] =   0.00000000000000
+
+k = [0.000, 0.000, 0.000]
+Occupation of state 16 (90%) = 0.000000000000000.
+Occupation of state 18 (100%) = 0.000000000000000.
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.004 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.033 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.217 ms
+Start calculating local components of forces ...
+time for sorting and interpolate pseudopotential: 0.644 ms, time for Allreduce/Reduce: 9.735 ms 
+Time for calculating local force components: 20.383 ms
+Start Calculating nonlocal forces
+force_nloc = 
+ -0.01635133267971  -0.02123705342343  -0.04362761758138
+  0.01635114364463   0.02123693022171  -0.04362732277536
+ -0.00935203363511  -0.05078890034609  -0.00259506911730
+  0.01865040979444   0.01886326750151   0.04406692367151
+  0.00935206314244   0.05078895280802  -0.00259507092564
+ -0.01865040720617  -0.01886324284071   0.04406687879513
+ -0.00766102122620  -0.03234104924392   0.01413710657633
+  0.00765992132974   0.03234441561412   0.01413998609409
+  0.00534206550948   0.00281166416754  -0.00202356575979
+ -0.00534120077643  -0.00281315049875  -0.00202642911066
+force_loc = 
+  0.01690029938135   0.02247875532416   0.04724947977365
+ -0.01689998243528  -0.02247891327136   0.04724881299275
+  0.00979751728295   0.05384215289744   0.00220473413033
+ -0.01988693151894  -0.01888263164683  -0.04667584103457
+ -0.00979701342232  -0.05383961864044   0.00220458103769
+  0.01988670204955   0.01888227352505  -0.04667493022483
+  0.00583789958279   0.02305324945466  -0.01443714500848
+ -0.00583474655022  -0.02305365748512  -0.01443753193040
+ -0.00470249424518  -0.00125978625811   0.00179477449659
+  0.00470282181037   0.00125705184413   0.00179548619447
+Time for calculating nonlocal force components: 42.919 ms
+[32mforces_xc: 
+[0m[32m  0.00000000000000   0.00000000000000   0.00000000000000
+[0m[32m  0.00000000000000   0.00000000000000   0.00000000000000
+[0m[32m  0.00000000000000   0.00000000000000   0.00000000000000
+[0m[32m  0.00000000000000   0.00000000000000   0.00000000000000
+[0m[32m  0.00000000000000   0.00000000000000   0.00000000000000
+[0m[32m  0.00000000000000   0.00000000000000   0.00000000000000
+[0m[32m -0.00043932332874   0.00417469600869  -0.00395216409132
+[0m[32m  0.00043941317976  -0.00417461372614  -0.00395202363317
+[0m[32m  0.00047121537500  -0.00292852739574   0.00382486447121
+[0m[32m -0.00047122855442   0.00292842249834   0.00382490794576
+[0mTime for calculating XC forces components: 28.548 ms
+ Cartesian force = 
+  0.00054859105126   0.00124163319185   0.00362847969361
+ -0.00054921444103  -0.00124205175853   0.00362810771873
+  0.00044510799746   0.00305318384247  -0.00038371748563
+ -0.00123689737488  -0.00001943285420  -0.00260229986172
+ -0.00044532593025  -0.00305073454130  -0.00038387238661
+  0.00123591919300   0.00001896197547  -0.00260143392836
+ -0.00226282062253  -0.00511317248944  -0.00424558502212
+  0.00226421230891   0.00511607569400  -0.00424295196815
+  0.00111041098892  -0.00137671819518   0.00360269070934
+ -0.00110998317085   0.00137225513484   0.00360058253091
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.002 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.030 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.357 ms
+======Set_D2D_Target: find receivers in each process (c_ndgrid) in send_comm took 0.002 ms
+======Set_D2D_Target: Gather and Scatter receivers in send_comm took 0.041 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.000 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.002 ms
+======D2D: initiated sending and receiving took 0.376 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.002 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.198 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.002 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.190 ms
+======D2D: find receivers' coords in each process (c_ndgrid) in send_comm took 0.001 ms
+======D2D: finished initiating send_comm! Start entering receivers comm
+======D2D: find senders' coords in each process (c_ndgrid) in recv_comm took 0.001 ms
+======D2D: initiated sending and receiving took 0.184 ms
+Time for printing density: 387.302 ms
+The program took 451.381 s.
+---------------------------------------
+Begin Slurm Epilog: Jun-01-2023 11:28:21
+Job ID:        2266723
+Array Job ID:  _4294967294
+User ID:       ssahoo41
+Account:       gts-amedford6-joe
+Job name:      molecule_functional
+Resources:     cpu=12,mem=84G,node=1
+Rsrc Used:     cput=01:35:48,vmem=8288K,walltime=00:07:59,mem=8152K,energy_used=0
+Partition:     cpu-small
+QOS:           inferno
+Nodes:         atl1-1-02-017-24-1
+---------------------------------------

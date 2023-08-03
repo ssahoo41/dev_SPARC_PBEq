@@ -1,0 +1,48 @@
+\begin{frame}[allowframebreaks]{\textbf{Acknowledgements}} \label{Acknowledgements}
+  \begin{itemize}
+      \item U.S. Department of Energy, Basic Energy Sciences, Computational Chemical Sciences Program: DESC0019410
+      \item Partnership for an Advanced Computing Environment (PACE): 1828187
+  \end{itemize}
+  \end{frame}
+
+\begin{frame}[allowframebreaks]{\textbf{Comments}} \label{Introduction}
+Key notes:
+\begin{itemize}
+    \item Input and output files for molecules, metals and chemisorption systems for PBEq15 (best functional) are provided in the GitHub repository.
+    \item Force and stress calculations are not yet implemented for the convolutional PBEq functional. 
+    \item MCSH stands for Maxwell Cartesian Spherical Harmonics.
+    \item Additional term in exchange potential calculation arising due to monopole dependence is neglected, by default. The source code needs to be changed directly if the user wants to test the functional for small \texttt{M\_VAL}.
+\end{itemize}
+\newpage 
+This is an experimental functional, and only the following arguments can be changed: 
+\begin{itemize}
+    \item \texttt{MCSH\_MAX\_R}: Maximum radial cut-off for MCSH expansion
+    \item \texttt{MCSH\_R\_STEPSIZE}: Step-size for radial cut-off for MCSH expansion
+    \item \texttt{N\_VAL}: Value of parameter n that determines $\alpha$ in PBEq functional
+\end{itemize}
+Note that the \texttt{PBEq} functional is not dependent on \texttt{MCSH\_R\_STEPSIZE}, hence it can be set to any value. This option is required in the input file for correct initialization of descriptor calculation.
+\newpage
+The following arguments cannot be changed:
+\begin{itemize}
+  \item \texttt{MCSH\_MAX\_ORDER}: Order of MCSH should be set to 0
+  \item \texttt{MCSH\_RADIAL\_TYPE}: Type of radial basis function for MCSH expansion should be set to 1
+  \item \texttt{EXCHANGE\_CORRELATION}: Exchange correlation functional should be set to \texttt{GGA\_CONV\_PBE\_MULTIPOLE} 
+  \item \texttt{M\_VAL}: Value of parameter m should be set to a large value (e.g. $10^6$) because additional term in exchange potential is neglected
+  \item \texttt{RELAX\_FLAG}: Structural relaxation should be turned off 
+\end{itemize}
+They are included in the documentation for completeness. 
+\end{frame}
+
+\begin{frame}[allowframebreaks]{\textbf{Input file options}} \label{Index}
+\vspace{-2mm}
+ \begin{block}{Convolutional PBEq}
+\hyperlink{EXCHANGE_CORRELATION}{\texttt{EXCHANGE\_CORRELATION}} $\vert$ 
+\hyperlink{MCSH_RADIAL_TYPE}{\texttt{MCSH\_RADIAL\_TYPE}} $\vert$ 
+\hyperlink{MCSH_R_STEPSIZE}{\texttt{MCSH\_R\_STEPSIZE}}  $\vert$ 
+\hyperlink{MCSH_MAX_ORDER}{\texttt{MCSH\_MAX\_ORDER}} $\vert$ 
+\hyperlink{MCSH_MAX_R}{\texttt{MCSH\_MAX\_R}} $\vert$ 
+\hyperlink{N_VAL}{\texttt{N\_VAL}}  $\vert$
+\hyperlink{M_VAL}{\texttt{M\_VAL}}
+\end{block}
+
+\end{frame}

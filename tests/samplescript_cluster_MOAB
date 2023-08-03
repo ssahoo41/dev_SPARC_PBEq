@@ -1,0 +1,17 @@
+#PBS -N testing_suite
+#PBS -o output.sparc
+#PBS -j oe
+#PBS -q hive-interact
+#PBS -l nodes=2:ppn=24
+#PBS -l pmem=7gb 
+#PBS -l walltime=1:00:00
+
+MYPROCS=`wc -l < ${PBS_NODEFILE}`
+
+
+ulimit -s unlimited
+export MV2_USE_RDMA_CM=1
+
+cd ${PBS_O_WORKDIR}
+echo $PWD 
+mpirun -np 1 ./sparc -name ./Si_cell/temp_run/Si_cell -log_summary > ./Si_cell/temp_run/Si_cell.log
