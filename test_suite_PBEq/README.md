@@ -14,6 +14,9 @@ The solid state reference data used in this study is obtained from data curated 
 ### (4) Adsorption systems:
 For chemisorption, we select CO adsorbed on three transition metal surfaces: Pt(111), Rh(111) and Cu(111). The surfaces are constructed using PBE lattice constants obtained from a benchmark dataset for transition metal surfaces by Wellendorf et. al at low coverage.[2]
 
+### Citations:
+If you publish work using this version of code, please cite the following:
+[![DOI](https://zenodo.org/badge/671987553.svg)](https://zenodo.org/badge/latestdoi/671987553)
 ### References:
 [1] NIST Computational Chemistry Comparison and Benchmark Database, NIST Standard Reference Database Number 101, Release 22, May 2022, Editor: Russell D. Johnson III 
 
