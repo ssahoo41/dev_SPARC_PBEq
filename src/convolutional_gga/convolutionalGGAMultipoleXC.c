@@ -78,7 +78,7 @@ void Calculate_Vxc_GGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, 
 
 // Next steps:
 // 1. Dxdgrho transformation part- for non-orthogonal cells (is it required for features)
-// 2. Forces, stress and pressure calculation using multipole features
+// 2. Stress and pressure calculation using multipole features
 
 /**
  * @brief   function to calculate exchange potential for PBEq where the additional terms for potential
@@ -136,7 +136,6 @@ void Calculate_Vx_GGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, d
     // memory allocation for global variables
     int gridsizes[3] = {pSPARC->Nx, pSPARC->Ny, pSPARC->Nz};
     global_rho = (double *) malloc(pSPARC->Nd * sizeof(double));
-    global_sigma = (double *) malloc(pSPARC->Nd * sizeof(double));
     global_Df_featmp = (double *) malloc(pSPARC->Nd * sizeof(double));
 
     // gathering distributed rho vector into global vector and broadcast to all processors
@@ -491,7 +490,7 @@ void Calculate_Vx_GSGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, 
             Dxdgrho[spn_i*DMnd + i] = ex_lsd * rho_updn * dfxdg; // spin up and spin down for second part of the derivative
             ex += ex_gga * rho_updn;
             // Df_alpha = -xc_cst->kappa * pow(divss, alpha[spn_i*DMnd + i])*(-log(1/divss) + (divss/alpha[spn_i*DMnd + i]));
-            // Dalpha_qp = - (4.0 * m)/(2.0 + exp(-m * (feat_qp_monopole[spn_i*DMnd + i]-n)) + exp(m*(feat_qp_monopole[spn_i*DMnd + i]-n)));
+            // Dalpha_qp = - ((4.0 - 0.75) * m)/(2.0 + exp(-m * (feat_qp_monopole[spn_i*DMnd + i]-n)) + exp(m*(feat_qp_monopole[spn_i*DMnd + i]-n)));
             // Dfeat_qp_mp[spn_i*DMnd+i] = ex_lsd * rho_updn * Df_alpha * Dalpha_qp;
         }
         e_x[i] = ex * rhotot_inv;
@@ -577,10 +576,7 @@ void Construct_alpha(SPARC_OBJ *pSPARC, const double *featureVector, const doubl
     double *global_alpha;
     int Nd = pSPARC->Nd;
     global_alpha = (double *) malloc(Nd * sizeof(double));
-    int rank;
     int gridsizes[3] = {pSPARC->Nx, pSPARC->Ny, pSPARC->Nz};
-
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     for (int i = 0; i < DMnd; i++){
         alpha[i] = 0.75 + ((4.0-0.75)/(1.0+exp(m*(featureVector[i] - n))));
         // alpha[i] = 0.52; //// comment out this line for constant alpha calculations

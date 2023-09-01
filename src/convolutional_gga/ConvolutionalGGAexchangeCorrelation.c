@@ -316,11 +316,6 @@ void Calculate_Vc_GGA_CONV_PBE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, double *rho
         rhotmo6 = sqrt(rhom1_3);
         rhoto6 = rho[i] * rhom1_3 * rhom1_3 * rhotmo6;
 
-        // First take care of the exchange part of the functional
-        rhomot = rho_updnm1_3;
-        // Perdew-Burke-Ernzerhof GGA, exchange part
-        rho_inv = rhomot * rhomot * rhomot;
-
         // Then takes care of the LSD correlation part of the functional
         rs = xc_cst->rsfac * rhom1_3;
         sqr_rs = xc_cst->sq_rsfac * rhotmo6;

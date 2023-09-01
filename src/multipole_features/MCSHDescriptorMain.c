@@ -43,12 +43,12 @@ void taskPartition_RadialLegendre(const int length, const double rCutoff, const 
 	if (rank == 0) printf("after calc total score, total score: %f\n", totalScore);
 	#endif
 
-	double currentTotal = 0, currentRemaindingScore = totalScore;
-	int currentRemaindingComm = numParallelComm, currentComm = 0;
-	double currentTargetScore = currentRemaindingScore/currentRemaindingComm;
+	double currentTotal = 0, currentRemainingScore = totalScore;
+	int currentRemainingComm = numParallelComm, currentComm = 0;
+	double currentTargetScore = currentRemainingScore/currentRemainingComm;
 
 	#ifdef DEBUG
-	if (rank == 0) printf("step -1, currentTotal: %f, currentRemaindingScore: %f, currentRemaindingComm: %d, currentComm: %d, currentTargetScore: %f \n", currentTotal, currentRemaindingScore, currentRemaindingComm, currentComm, currentTargetScore);	
+	if (rank == 0) printf("step -1, currentTotal: %f, currentRemainingScore: %f, currentRemainingComm: %d, currentComm: %d, currentTargetScore: %f \n", currentTotal, currentRemainingScore, currentRemainingComm, currentComm, currentTargetScore);	
 	#endif
 
 	for (i = 0; i < length; i++){
@@ -59,15 +59,15 @@ void taskPartition_RadialLegendre(const int length, const double rCutoff, const 
 		#endif
 		if (currentTotal >= currentTargetScore ){
 			currentComm++;
-			currentRemaindingScore -= currentTotal; 
-			currentRemaindingComm--; 
+			currentRemainingScore -= currentTotal; 
+			currentRemainingComm--; 
 			currentTotal = 0;
-			if (currentRemaindingScore != 0){
-				currentTargetScore = currentRemaindingScore/currentRemaindingComm;
+			if (currentRemainingScore != 0){
+				currentTargetScore = currentRemainingScore/currentRemainingComm;
 			}
 		}
 		#ifdef DEBUG
-		if (rank == 0) printf("step %d, currentTotal: %f, currentRemaindingScore: %f, currentRemaindingComm: %d, currentComm: %d, currentTargetScore: %f \n", i, currentTotal, currentRemaindingScore, currentRemaindingComm, currentComm, currentTargetScore);
+		if (rank == 0) printf("step %d, currentTotal: %f, currentRemainingScore: %f, currentRemainingComm: %d, currentComm: %d, currentTargetScore: %f \n", i, currentTotal, currentRemainingScore, currentRemainingComm, currentComm, currentTargetScore);
 		#endif
 	}	
 	#ifdef DEBUG
@@ -93,12 +93,12 @@ void taskPartition_RadialRStep(const int length, const double *rCutoffList, cons
 	if (rank == 0) printf("after calc total score, total score: %f\n", totalScore);
 	#endif
 
-	double currentTotal = 0, currentRemaindingScore = totalScore;
-	int currentRemaindingComm = numParallelComm, currentComm = 0;
-	double currentTargetScore = currentRemaindingScore/currentRemaindingComm;
+	double currentTotal = 0, currentRemainingScore = totalScore;
+	int currentRemainingComm = numParallelComm, currentComm = 0;
+	double currentTargetScore = currentRemainingScore/currentRemainingComm;
 
 	#ifdef DEBUG
-	if (rank == 0) printf("step -1, currentTotal: %f, currentRemaindingScore: %f, currentRemaindingComm: %d, currentComm: %d, currentTargetScore: %f \n", currentTotal, currentRemaindingScore, currentRemaindingComm, currentComm, currentTargetScore);	
+	if (rank == 0) printf("step -1, currentTotal: %f, currentRemainingScore: %f, currentRemainingComm: %d, currentComm: %d, currentTargetScore: %f \n", currentTotal, currentRemainingScore, currentRemainingComm, currentComm, currentTargetScore);	
 	#endif
 
 	for (i = 0; i < length; i++){
@@ -109,16 +109,16 @@ void taskPartition_RadialRStep(const int length, const double *rCutoffList, cons
 		#endif
 		if (currentTotal >= currentTargetScore ){
 			currentComm++;
-			currentRemaindingScore -= currentTotal; 
-			currentRemaindingComm--; 
+			currentRemainingScore -= currentTotal; 
+			currentRemainingComm--; 
 			currentTotal = 0;
-			if (currentRemaindingScore != 0){
-				currentTargetScore = currentRemaindingScore/currentRemaindingComm;
+			if (currentRemainingScore != 0){
+				currentTargetScore = currentRemainingScore/currentRemainingComm;
 			}
 			
 		}
 		#ifdef DEBUG
-		if (rank == 0) printf("step %d, currentTotal: %f, currentRemaindingScore: %f, currentRemaindingComm: %d, currentComm: %d, currentTargetScore: %f \n", i, currentTotal, currentRemaindingScore, currentRemaindingComm, currentComm, currentTargetScore);
+		if (rank == 0) printf("step %d, currentTotal: %f, currentRemainingScore: %f, currentRemainingComm: %d, currentComm: %d, currentTargetScore: %f \n", i, currentTotal, currentRemainingScore, currentRemainingComm, currentComm, currentTargetScore);
 		#endif
 	}
 	#ifdef DEBUG
