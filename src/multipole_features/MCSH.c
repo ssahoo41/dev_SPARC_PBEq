@@ -1,4 +1,3 @@
-
 /**
 * @file MCSH.c
 * @brief This file contains the declaration of MCSH functions.

@@ -443,10 +443,6 @@ void Calculate_Vxc_GGA_PBE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, double *rho) {
     if (pSPARC->dmcomm_phi == MPI_COMM_NULL) {
         return; 
     }
-    
-    //double beta, kappa_pbe, mu, rsfac, kappa, mu_divkappa_pbe, mu_divkappa;
-    //double ec0_aa, ec0_a1, ec0_b1, ec0_b2, ec0_b3, ec0_b4;
-    //double pi, piinv, third, twom1_3, sixpi2_1_3, sixpi2m1_3, threefourth_divpi, gamma, gamma_inv, coeff_tt, sq_rsfac, sq_rsfac_inv;
     double rho_updn, rho_updnm1_3, rhom1_3, rhotot_inv, rhotmo6, rhoto6, rhomot, ex_lsd, rho_inv, coeffss, ss;
     double divss, dfxdss, fx, ex_gga, dssdn, dfxdn, dssdg, dfxdg, exc, rs, sqr_rs, rsm1_2;
     double ec0_q0, ec0_q1, ec0_q1p, ec0_den, ec0_log, ecrs0, decrs0_drs, ecrs, decrs_drs;
@@ -486,13 +482,10 @@ void Calculate_Vxc_GGA_PBE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, double *rho) {
     }
 
     // Compute exchange and correlation
-    //phi_zeta = 1.0;
-    //phip_zeta = 0.0;
     phi_zeta_inv = 1.0;
     //phi_logder = 0.0;
     phi3_zeta = 1.0;
     gamphi3inv = xc_cst->gamma_inv;
-    //phipp_zeta = (-2.0/9.0) * alpha_zeta * alpha_zeta;
 
     for(i = 0; i < DMnd; i++){
         rho_updn = rho[i]/2.0;

@@ -1,5 +1,5 @@
 /**
-* @file MCSHHelper.h
+* @file MCSHHelper.c
 * @brief This file contains the declaration of MCSH functions.
 *
 * @author Sushree Jagriti Sahoo <ssahoo41@gatech.edu>
@@ -335,8 +335,7 @@ void getRArray(const double *x, const double *y, const double *z, double *result
 void polyArray(const double *x, const int powX, const double a, double *result, const int size)
 {
 	int i = 0;
-	for (i = 0; i < size; i++)
-	{
+	for (i = 0; i < size; i++){
 		result[i] = a * pow(x[i], powX);
 	}
 }
@@ -347,8 +346,7 @@ void polyArray(const double *x, const int powX, const double a, double *result, 
 void polyArray_add(const double *x, const int powX, const double a, double *result, const int size)
 {
 	int i = 0;
-	for (i = 0; i < size; i++)
-	{
+	for (i = 0; i < size; i++){
 		result[i] += a * pow(x[i], powX);
 	}
 }
@@ -359,8 +357,7 @@ void polyArray_add(const double *x, const int powX, const double a, double *resu
 void polyXYZArray(const double *x, const double *y, const double *z, const int powX, const int powY, const int powZ, const double a, double *result, const int size)
 {
 	int i = 0;
-	for (i = 0; i < size; i++)
-	{
+	for (i = 0; i < size; i++){
 		result[i] = a * pow(x[i], powX) * pow(y[i], powY) * pow(z[i], powZ) ;
 	}
 }
@@ -371,8 +368,7 @@ void polyXYZArray(const double *x, const double *y, const double *z, const int p
 void polyXYZArray_add(const double *x, const double *y, const double *z, const int powX, const int powY, const int powZ, const double a, double *result, const int size)
 {
 	int i = 0;
-	for (i = 0; i < size; i++)
-	{
+	for (i = 0; i < size; i++){
 		result[i] += a * pow(x[i], powX) * pow(y[i], powY) * pow(z[i], powZ) ;
 	}
 }
@@ -386,15 +382,13 @@ void applyU(double *X, double *Y, double*Z, const double *U, const int size)
 	double *matMutResult = malloc( 3 * size * sizeof(double));
 
 	int i;
-	for ( i = 0; i < size; i++ )
-	{
+	for ( i = 0; i < size; i++ ){
 		combinedArr[ i * 3 ] = X[i];
 		combinedArr[ i * 3 + 1 ] = Y[i];
 		combinedArr[ i * 3 + 2 ] = Z[i];
 	}
 
-	for ( i = 0; i < size; i++ )
-	{
+	for ( i = 0; i < size; i++ ){
 		X[i] = matMutResult[ i * 3 ];
 		Y[i] = matMutResult[ i * 3 + 1 ];
 		Z[i] = matMutResult[ i * 3 + 2 ];
@@ -1063,7 +1057,6 @@ void getMainParameter_RadialLegendre(MULTIPOLE_OBJ *mp, int* LegendreOrderList, 
 		{
 			LegendreOrderList[index] = j;
 			lList[index] = getCurrentLNumber(i);
-			//groupList[index] = getCurrentGroupNumber(i);
 			index++;
 		}
 	}
@@ -1074,15 +1067,9 @@ void getMainParameter_RadialLegendre(MULTIPOLE_OBJ *mp, int* LegendreOrderList, 
 */
 int getDescriptorListLength_RadialLegendre(MULTIPOLE_OBJ *mp)
 {
-
-	//int numGroup = getNumGroup(maxMCSHOrder);
-	// printf("\nnumber groups:%d \n", numGroup);
 	int numMCSH = mp->MCSHMaxOrder + 1;
 	int numLegendre = mp->MCSHMaxRadialOrder + 1;
-	// printf("\nnumber r cutoff:%d \n", numRCutoff);
-	
 	return numMCSH * numLegendre;
-
 }
 
 /**
