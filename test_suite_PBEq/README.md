@@ -16,7 +16,7 @@ For chemisorption, we select CO adsorbed on three transition metal surfaces: Pt(
 
 ### Citations:
 If you publish work using this version of code, please cite the following:
-[![DOI](https://zenodo.org/badge/671987553.svg)](https://zenodo.org/badge/latestdoi/671987553)
+[![DOI](https://zenodo.org/badge/671987553.svg)](https://zenodo.org/doi/10.5281/zenodo.8212527)
 ### References:
 [1] NIST Computational Chemistry Comparison and Benchmark Database, NIST Standard Reference Database Number 101, Release 22, May 2022, Editor: Russell D. Johnson III 
 
