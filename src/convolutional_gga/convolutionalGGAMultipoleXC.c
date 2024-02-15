@@ -59,7 +59,7 @@ void Calculate_Vxc_GGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, 
     gather_distributed_vector(CPotential, pSPARC->DMVertices, global_CPotential, gridsizes, pSPARC->dmcomm_phi, 1);
     char CPotentialFilename[128];
     if (rank == 0){
-        snprintf(CPotentialFilename, 128, "pbe_corr_potential.csv");
+        snprintf(CPotentialFilename, 128, "pbe_c_potential.csv");
         writeMatToFile(CPotentialFilename, global_CPotential, pSPARC->Nx, pSPARC->Ny, pSPARC->Nz);
     }
     #endif
@@ -76,7 +76,7 @@ void Calculate_Vxc_GGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, 
     free(Dxdgrho); free(Dcdgrho);
 }
 
-// Next steps:
+// TO-DO:
 // 1. Dxdgrho transformation part- for non-orthogonal cells (is it required for features)
 // 2. Stress and pressure calculation using multipole features
 
@@ -128,10 +128,9 @@ void Calculate_Vx_GGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, d
     DDrho_z = (double *) malloc(DMnd * sizeof(double));
     sigma = (double *) malloc(DMnd * sizeof(double));
 
+    feat_qp_monopole = (double *) malloc(DMnd * sizeof(double));
     Dfeat_qp_mp = (double *) malloc(DMnd * sizeof(double));
     DDfeat_qp_mp = (double *)malloc(DMnd * sizeof(double));
-    feat_qp_monopole = (double *) malloc(DMnd * sizeof(double));
-    
     alpha = (double *) malloc(DMnd * sizeof(double));
     // memory allocation for global variables
     int gridsizes[3] = {pSPARC->Nx, pSPARC->Ny, pSPARC->Nz};
@@ -213,9 +212,9 @@ void Calculate_Vx_GGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, d
         dfxdg = dfxdss * dssdg;
         Dxdgrho[i] = 0.5 * ex_lsd * rho_updn * dfxdg;// second part of the derivative
         ex = ex_gga * rho_updn;
-        Df_alpha = -xc_cst->kappa * pow(divss, alpha[i])*(-log(1/divss) + ((xc_cst->mu_divkappa * ss * divss)/alpha[i])); // fixing bug (deleted the fix for sometime)
-        Dalpha_qp = -((4.0-0.75) * m)/(2.0 + exp(- m * (feat_qp_monopole[i] - n)) + exp(m * (feat_qp_monopole[i] - n)));
-        Dfeat_qp_mp[i] = ex_lsd * 2 * rho_updn * Df_alpha * Dalpha_qp;
+        //Df_alpha = -xc_cst->kappa * pow(divss, alpha[i])*(-log(1/divss) + ((xc_cst->mu_divkappa * ss * divss)/alpha[i])); 
+        //Dalpha_qp = -((4.0-0.75) * m)/(2.0 + exp(- m * (feat_qp_monopole[i] - n)) + exp(m * (feat_qp_monopole[i] - n)));
+        //Dfeat_qp_mp[i] = ex_lsd * 2 * rho_updn * Df_alpha * Dalpha_qp;
 
         // If non spin-polarized, treat spin down contribution now, similar to spin up
         ex = ex * 2.0;
@@ -263,27 +262,27 @@ void Calculate_Vx_GGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, d
     free(pbeX_potential);
     #endif
 
-    // Extra potential contribution from HSMP part saved to a different file
-    #ifdef DEBUG
-    if (rank == 0) printf("Saving extra potential contribution from HSMP.\n");
-    #endif
-    double *extra_potential, *global_extra_potential;
-    extra_potential = (double *)malloc(DMnd * sizeof(double));
-    for (i = 0; i < DMnd; i++){
-        extra_potential[i] = 0;
-    }
-    #ifdef DEBUG
-    global_extra_potential = (double *)malloc(pSPARC->Nd * sizeof(double));
-    #endif
+    // // Extra potential contribution from HSMP part saved to a different file
+    // #ifdef DEBUG
+    // if (rank == 0) printf("Saving extra potential contribution from HSMP.\n");
+    // #endif
+    // double *extra_potential, *global_extra_potential;
+    // extra_potential = (double *)malloc(DMnd * sizeof(double));
+    // for (i = 0; i < DMnd; i++){
+    //     extra_potential[i] = 0;
+    // }
+    // #ifdef DEBUG
+    // global_extra_potential = (double *)malloc(pSPARC->Nd * sizeof(double));
+    // #endif
 
-    gather_distributed_vector(Dfeat_qp_mp, pSPARC->DMVertices, global_Df_featmp, gridsizes, pSPARC->dmcomm_phi, 1);
-    MPI_Bcast(global_Df_featmp, pSPARC->Nd, MPI_DOUBLE,  0, MPI_COMM_WORLD);
-    Conv_feat_vectors_dir(pSPARC, &mp, pSPARC->DMVertices, 1, global_Df_featmp, DDfeat_qp_mp, "000", pSPARC->dmcomm_phi);
-    // monopole contribution
-    for (i = 0; i < DMnd; i++){
-        XPotential[i] += DDfeat_qp_mp[i];
-        extra_potential[i] += DDfeat_qp_mp[i];
-    }
+    // gather_distributed_vector(Dfeat_qp_mp, pSPARC->DMVertices, global_Df_featmp, gridsizes, pSPARC->dmcomm_phi, 1);
+    // MPI_Bcast(global_Df_featmp, pSPARC->Nd, MPI_DOUBLE,  0, MPI_COMM_WORLD);
+    // Conv_feat_vectors_dir(pSPARC, &mp, pSPARC->DMVertices, 1, global_Df_featmp, DDfeat_qp_mp, "000", pSPARC->dmcomm_phi);
+    // // monopole contribution
+    // for (i = 0; i < DMnd; i++){
+    //     XPotential[i] += DDfeat_qp_mp[i];
+    //     extra_potential[i] += DDfeat_qp_mp[i];
+    // }
 
     #ifdef DEBUG
     gather_distributed_vector(extra_potential, pSPARC->DMVertices, global_extra_potential, gridsizes, pSPARC->dmcomm_phi, 1);
@@ -294,7 +293,7 @@ void Calculate_Vx_GGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, d
     }
     #endif
     //Deallocate memory
-    free(extra_potential); free(global_extra_potential);
+    //free(extra_potential); free(global_extra_potential);
     free(Drho_x); free(Drho_y); free(Drho_z);
     free(global_rho); 
     free(DDrho_x); free(DDrho_y); free(DDrho_z);
@@ -489,9 +488,9 @@ void Calculate_Vx_GSGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, 
             dfxdg = dfxdss * dssdg;
             Dxdgrho[spn_i*DMnd + i] = ex_lsd * rho_updn * dfxdg; // spin up and spin down for second part of the derivative
             ex += ex_gga * rho_updn;
-            Df_alpha = -xc_cst->kappa * pow(divss, alpha[spn_i*DMnd + i])*(-log(1/divss) + ((xc_cst->mu_divkappa * ss * divss)/alpha[spn_i*DMnd + i]));
-            Dalpha_qp = - ((4.0 - 0.75) * m)/(2.0 + exp(-m * (feat_qp_monopole[spn_i*DMnd + i]-n)) + exp(m*(feat_qp_monopole[spn_i*DMnd + i]-n)));
-            Dfeat_qp_mp[spn_i*DMnd+i] = ex_lsd * rho_updn * Df_alpha * Dalpha_qp;
+            //Df_alpha = -xc_cst->kappa * pow(divss, alpha[spn_i*DMnd + i])*(-log(1/divss) + ((xc_cst->mu_divkappa * ss * divss)/alpha[spn_i*DMnd + i]));
+            //Dalpha_qp = - ((4.0 - 0.75) * m)/(2.0 + exp(-m * (feat_qp_monopole[spn_i*DMnd + i]-n)) + exp(m*(feat_qp_monopole[spn_i*DMnd + i]-n)));
+            //Dfeat_qp_mp[spn_i*DMnd+i] = ex_lsd * rho_updn * Df_alpha * Dalpha_qp;
         }
         e_x[i] = ex * rhotot_inv;
     }
@@ -522,18 +521,18 @@ void Calculate_Vx_GSGA_CONV_PBE_MULTIPOLE(SPARC_OBJ *pSPARC, XCCST_OBJ *xc_cst, 
         XPotential[DMnd + i] += - DDrho_x[DMnd + i] - DDrho_y[DMnd + i] - DDrho_z[DMnd + i];
     }  
 
-    // add the contribution from the monopole
-    for (int i = 0; i < 2; i++){
-        gather_distributed_vector(Dfeat_qp_mp + i*DMnd, pSPARC->DMVertices, global_Df_featmp + i*Nd, gridsizes, pSPARC->dmcomm_phi, 1);
-    }
+    // // add the contribution from the monopole
+    // for (int i = 0; i < 2; i++){
+    //     gather_distributed_vector(Dfeat_qp_mp + i*DMnd, pSPARC->DMVertices, global_Df_featmp + i*Nd, gridsizes, pSPARC->dmcomm_phi, 1);
+    // }
     
-    MPI_Bcast(global_Df_featmp, 2*Nd, MPI_DOUBLE, 0, pSPARC->dmcomm_phi);
-    Conv_feat_vectors_dir(pSPARC, &mp, pSPARC->DMVertices, 2, global_Df_featmp, DDfeat_qp_mp, "000", pSPARC->dmcomm_phi);
+    // MPI_Bcast(global_Df_featmp, 2*Nd, MPI_DOUBLE, 0, pSPARC->dmcomm_phi);
+    // Conv_feat_vectors_dir(pSPARC, &mp, pSPARC->DMVertices, 2, global_Df_featmp, DDfeat_qp_mp, "000", pSPARC->dmcomm_phi);
 
-    for(i=0; i < DMnd; i++){
-        XPotential[i] +=  DDfeat_qp_mp[i];
-        XPotential[DMnd + i] += DDfeat_qp_mp[DMnd + i];
-    }
+    // for(i=0; i < DMnd; i++){
+    //     XPotential[i] +=  DDfeat_qp_mp[i];
+    //     XPotential[DMnd + i] += DDfeat_qp_mp[DMnd + i];
+    // }
 
 
     // Deallocate memory
